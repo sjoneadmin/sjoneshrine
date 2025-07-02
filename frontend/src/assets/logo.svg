@@ -1,0 +1,22 @@
+<svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Leaf 1 -->
+  <path d="M20 80 Q10 60 20 40 Q30 60 20 80 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- Leaf 2 -->
+  <path d="M45 50 Q35 30 45 10 Q55 30 45 50 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- Leaf 3 -->
+  <path d="M80 30 Q70 10 80 -5 Q90 10 80 30 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- Leaf 4 (Center) -->
+  <path d="M115 25 Q105 5 115 -10 Q125 5 115 25 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- Leaf 5 -->
+  <path d="M150 30 Q140 10 150 -5 Q160 10 150 30 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- Leaf 6 -->
+  <path d="M185 50 Q175 30 185 10 Q195 30 185 50 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+  
+  <!-- Leaf 7 -->
+  <path d="M210 80 Q200 60 210 40 Q220 60 210 80 Z" fill="currentColor" stroke="currentColor" stroke-width="1"/>
+</svg>
