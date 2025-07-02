@@ -144,8 +144,8 @@ const Dashboard = () => {
               <Card className="shadow-xl border-0 bg-white/95 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-2xl font-bold">
-                    <Trophy className="w-8 h-8 text-emerald-600" />
-                    Milestones & Rewards
+                    <Trophy className="w-8 h-8 text-[#FE6F5E]" />
+                    Development Phases
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
@@ -153,32 +153,35 @@ const Dashboard = () => {
                     <div key={milestone.id} className="relative">
                       <div className={`p-6 rounded-xl border-2 transition-all duration-300 ${
                         milestone.achieved 
-                          ? 'bg-gradient-to-r from-emerald-50 to-emerald-100 border-emerald-300 shadow-lg' 
+                          ? 'bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 border-[#FE6F5E] shadow-lg' 
                           : milestone.amount <= mockGoal.currentAmount
-                          ? 'bg-gradient-to-r from-yellow-50 to-yellow-100 border-yellow-300 shadow-lg animate-pulse'
+                          ? 'bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-400 shadow-lg animate-pulse'
                           : 'bg-gray-50 border-gray-200 hover:border-gray-300'
                       }`}>
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
-                            <div className="flex items-center gap-3 mb-2">
-                              <Badge variant={milestone.achieved ? "default" : "secondary"} className="text-lg px-3 py-1">
-                                ${milestone.amount.toLocaleString()}
+                            <div className="flex items-center gap-3 mb-3">
+                              <Badge variant={milestone.achieved ? "default" : "secondary"} className="text-lg px-4 py-2 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] text-white">
+                                Phase {milestone.phase}
+                              </Badge>
+                              <Badge variant={milestone.achieved ? "default" : "secondary"} className="text-base px-3 py-1">
+                                ${milestone.amount.toLocaleString()} | {milestone.percentage}%
                               </Badge>
                               {milestone.achieved && (
-                                <Badge className="bg-emerald-500 hover:bg-emerald-600 text-white">
-                                  ✓ Achieved
+                                <Badge className="bg-green-500 hover:bg-green-600 text-white">
+                                  ✓ Complete
                                 </Badge>
                               )}
                             </div>
-                            <h3 className="text-xl font-bold text-gray-900 mb-2">{milestone.title}</h3>
-                            <p className="text-gray-600 mb-3">{milestone.description}</p>
-                            <div className="flex items-center gap-2 text-emerald-600">
-                              <Gift className="w-4 h-4" />
+                            <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
+                            <p className="text-gray-600 mb-4 leading-relaxed">{milestone.description}</p>
+                            <div className="flex items-start gap-2 text-[#FE6F5E]">
+                              <Gift className="w-5 h-5 mt-0.5 flex-shrink-0" />
                               <span className="font-medium">{milestone.reward}</span>
                             </div>
                             {milestone.achievedDate && (
-                              <div className="mt-2 text-sm text-emerald-600 font-medium">
-                                Achieved on {new Date(milestone.achievedDate).toLocaleDateString()}
+                              <div className="mt-3 text-sm text-green-600 font-medium">
+                                Completed on {new Date(milestone.achievedDate).toLocaleDateString()}
                               </div>
                             )}
                           </div>
@@ -186,16 +189,20 @@ const Dashboard = () => {
                         
                         {/* Progress bar for this milestone */}
                         <div className="mt-4">
+                          <div className="flex justify-between text-sm text-gray-600 mb-1">
+                            <span>Progress</span>
+                            <span>{Math.min((mockGoal.currentAmount / milestone.amount) * 100, 100).toFixed(1)}%</span>
+                          </div>
                           <Progress 
                             value={Math.min((mockGoal.currentAmount / milestone.amount) * 100, 100)} 
-                            className="h-2"
+                            className="h-3 bg-gray-200"
                           />
                         </div>
                       </div>
                       
                       {/* Connector line */}
                       {index < mockMilestones.length - 1 && (
-                        <div className="absolute left-1/2 bottom-0 w-1 h-6 bg-gradient-to-b from-emerald-300 to-gray-200 transform translate-y-full"></div>
+                        <div className="absolute left-1/2 bottom-0 w-1 h-6 bg-gradient-to-b from-[#FE6F5E]/50 to-gray-200 transform translate-y-full"></div>
                       )}
                     </div>
                   ))}
