@@ -25,10 +25,9 @@ const DonationForm = ({ onDonationAdded }) => {
 
   const providerIcons = {
     stripe: CreditCard,
-    hitpay: CreditCard,
     remitly: Globe,
-    square_invoice: FileText,
-    square_cashapp: DollarSign,
+    autobooks_invoice: FileText,
+    cashapp: DollarSign,
     zelle: Building
   };
 
