@@ -42,7 +42,7 @@ const Navigation = () => {
                   to={item.href}
                   className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg'
+                      ? 'bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] text-white shadow-lg'
                       : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'
                   }`}
                 >
