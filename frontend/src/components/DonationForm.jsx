@@ -24,6 +24,7 @@ const DonationForm = ({ onDonationAdded }) => {
   const { toast } = useToast();
 
   const providerIcons = {
+    stripe: CreditCard,
     hitpay: CreditCard,
     remitly: Globe,
     square_invoice: FileText,
