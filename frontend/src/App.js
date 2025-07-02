@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
-import AddDonation from "./components/AddDonation";
+import DonationForm from "./components/DonationForm";
 import { Toaster } from "./components/ui/toaster";
 import { Button } from "./components/ui/button";
-import { Home, Plus, BarChart3, Menu, X } from 'lucide-react';
+import { Home, Heart, Target, Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const location = useLocation();
