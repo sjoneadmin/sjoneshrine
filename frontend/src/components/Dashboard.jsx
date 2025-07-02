@@ -74,7 +74,7 @@ const Dashboard = () => {
             <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-xl">
+                  <div className="p-3 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] rounded-xl">
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -93,7 +93,7 @@ const Dashboard = () => {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">{achievedMilestones.length}</div>
-                    <div className="text-gray-600">Milestones Reached</div>
+                    <div className="text-gray-600">Phases Complete</div>
                   </div>
                 </div>
               </CardContent>
@@ -103,7 +103,7 @@ const Dashboard = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl">
-                    <DollarSign className="w-6 h-6 text-white" />
+                    <Heart className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">
@@ -119,7 +119,7 @@ const Dashboard = () => {
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl">
-                    <Calendar className="w-6 h-6 text-white" />
+                    <DollarSign className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">
