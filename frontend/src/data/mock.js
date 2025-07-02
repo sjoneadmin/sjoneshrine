@@ -19,8 +19,8 @@ export const mockMilestones = [
     title: "Research & Visioning",
     description: "Sjòne Shrine Inc. supports emerging future female leaders for virtual athletic performance. These contributions help sustain resources for those seeking E-Sports coaching, recreational therapy, and gear.",
     reward: "Foundation research and community engagement",
-    achieved: true,
-    achievedDate: "2025-02-15",
+    achieved: false,
+    achievedDate: null,
     percentage: 20
   },
   {
@@ -30,8 +30,8 @@ export const mockMilestones = [
     title: "Architectural Planning",
     description: "Architectural planning is in progress consulting with licensed professionals and project advisors.",
     reward: "Professional architectural consultation and planning documentation",
-    achieved: true,
-    achievedDate: "2025-04-20",
+    achieved: false,
+    achievedDate: null,
     percentage: 25
   },
   {
