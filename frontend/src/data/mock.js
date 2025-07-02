@@ -159,13 +159,6 @@ export const paymentProviders = [
     icon: "💳"
   },
   {
-    id: "hitpay",
-    name: "HitPay",
-    description: "Secure online payments with multiple options",
-    supportedTypes: ["one-time", "recurring"],
-    icon: "🔒"
-  },
-  {
     id: "remitly",
     name: "Remitly",
     description: "International money transfers",
@@ -173,16 +166,16 @@ export const paymentProviders = [
     icon: "🌍"
   },
   {
-    id: "square_invoice",
-    name: "Invoice (Square)",
-    description: "Professional invoice payments",
+    id: "autobooks_invoice",
+    name: "Invoice (NBKC)",
+    description: "Professional invoicing through NBKC Bank",
     supportedTypes: ["one-time"],
     icon: "📄"
   },
   {
-    id: "square_cashapp",
+    id: "cashapp",
     name: "Cash App",
-    description: "Quick payments via Cash App",
+    description: "Quick and easy mobile payments",
     supportedTypes: ["one-time"],
     icon: "💰"
   },
