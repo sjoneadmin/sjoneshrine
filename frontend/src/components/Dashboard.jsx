@@ -3,8 +3,8 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
 import ProgressLogo from './ProgressLogo';
-import { mockGoal, mockMilestones, mockDonations, getProgressPercentage, getNextMilestone } from '../data/mock';
-import { Target, Trophy, DollarSign, Users, Calendar, Gift } from 'lucide-react';
+import { mockGoal, mockMilestones, mockDonations, getProgressPercentage, getNextMilestone, getCurrentPhase } from '../data/mock';
+import { Target, Trophy, DollarSign, Users, Calendar, Gift, Gamepad2, Heart } from 'lucide-react';
 
 const Dashboard = () => {
   const progress = getProgressPercentage();
