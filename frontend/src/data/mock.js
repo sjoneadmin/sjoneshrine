@@ -5,7 +5,7 @@ export const mockGoal = {
   subtitle: "Supporting Emerging Future Female Leaders",
   description: "Sjòne Shrine Inc. supports emerging future female leaders for virtual athletic performance. These contributions help sustain resources for those seeking E-Sports coaching, recreational therapy, and gear.",
   targetAmount: 50000,
-  currentAmount: 12500,
+  currentAmount: 2750,
   currency: "USD",
   createdAt: "2025-01-01",
   endDate: "2025-12-31"
