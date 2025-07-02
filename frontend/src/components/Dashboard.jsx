@@ -13,9 +13,9 @@ const Dashboard = () => {
   const achievedMilestones = mockMilestones.filter(m => m.achieved);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-700">
+      <div className="relative overflow-hidden bg-gradient-to-r from-[#FE6F5E] via-[#FE4A36] to-[#E8452E]">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative px-6 py-16">
           <div className="max-w-7xl mx-auto">
@@ -23,10 +23,13 @@ const Dashboard = () => {
               <div className="text-white space-y-6">
                 <h1 className="text-5xl font-black leading-tight">
                   {mockGoal.title}
-                  <span className="block text-2xl font-normal text-emerald-200 mt-2">
-                    {mockGoal.description}
+                  <span className="block text-2xl font-normal text-orange-100 mt-2">
+                    {mockGoal.subtitle}
                   </span>
                 </h1>
+                <p className="text-xl text-orange-100 leading-relaxed">
+                  {mockGoal.description}
+                </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <DollarSign className="w-8 h-8" />
@@ -34,28 +37,34 @@ const Dashboard = () => {
                       <div className="text-4xl font-bold">
                         ${mockGoal.currentAmount.toLocaleString()}
                       </div>
-                      <div className="text-emerald-200">
+                      <div className="text-orange-200">
                         of ${mockGoal.targetAmount.toLocaleString()} goal
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4">
-                    <Users className="w-6 h-6" />
-                    <span className="text-xl">{mockDonations.length} supporters</span>
+                  <div className="flex items-center gap-6">
+                    <div className="flex items-center gap-2">
+                      <Users className="w-6 h-6" />
+                      <span className="text-xl">{mockDonations.length} supporters</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Gamepad2 className="w-6 h-6" />
+                      <span className="text-xl">Phase {getCurrentPhase()}</span>
+                    </div>
                   </div>
                 </div>
               </div>
               
               <div className="flex justify-center">
-                <ProgressLogo size={300} className="transform hover:scale-105 transition-transform duration-300" />
+                <ProgressLogo size={350} className="transform hover:scale-105 transition-transform duration-300" />
               </div>
             </div>
           </div>
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500 rounded-full opacity-10 transform translate-x-48 -translate-y-48"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500 rounded-full opacity-10 transform -translate-x-32 translate-y-32"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-orange-400 rounded-full opacity-10 transform translate-x-48 -translate-y-48"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-red-400 rounded-full opacity-10 transform -translate-x-32 translate-y-32"></div>
       </div>
 
       {/* Stats Grid */}
