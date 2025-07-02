@@ -215,24 +215,31 @@ const Dashboard = () => {
               <Card className="shadow-xl border-0 bg-white/95 backdrop-blur-sm">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-xl font-bold">
-                    <Users className="w-6 h-6 text-blue-600" />
+                    <Users className="w-6 h-6 text-[#FE6F5E]" />
                     Recent Support
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   {recentDonations.map((donation) => (
-                    <div key={donation.id} className="p-4 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 hover:shadow-md transition-all duration-200">
+                    <div key={donation.id} className="p-4 rounded-lg bg-gradient-to-r from-orange-50 to-red-50 border border-[#FE6F5E]/20 hover:shadow-md transition-all duration-200">
                       <div className="flex justify-between items-start mb-2">
                         <div className="font-semibold text-gray-900">{donation.donorName}</div>
-                        <Badge className="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
-                          ${donation.amount}
-                        </Badge>
+                        <div className="flex flex-col items-end gap-1">
+                          <Badge className="bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] text-white">
+                            ${donation.amount}
+                          </Badge>
+                          <span className="text-xs text-gray-500 capitalize">{donation.provider}</span>
+                        </div>
                       </div>
                       {donation.message && (
                         <p className="text-sm text-gray-600 mb-2">"{donation.message}"</p>
                       )}
-                      <div className="text-xs text-gray-500">
-                        {new Date(donation.date).toLocaleDateString()} • {donation.type}
+                      <div className="flex justify-between items-center text-xs text-gray-500">
+                        <span>{new Date(donation.date).toLocaleDateString()}</span>
+                        <div className="flex items-center gap-1">
+                          <span className={`w-2 h-2 rounded-full ${donation.status === 'completed' ? 'bg-green-500' : 'bg-yellow-500'}`}></span>
+                          <span className="capitalize">{donation.status}</span>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -241,25 +248,29 @@ const Dashboard = () => {
 
               {/* Next Milestone */}
               {nextMilestone && (
-                <Card className="mt-6 shadow-xl border-0 bg-gradient-to-r from-yellow-50 to-orange-50">
+                <Card className="mt-6 shadow-xl border-0 bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-lg font-bold text-orange-800">
+                    <CardTitle className="flex items-center gap-3 text-lg font-bold text-[#FE4A36]">
                       <Target className="w-6 h-6" />
-                      Next Milestone
+                      Next Phase
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <div className="space-y-3">
-                      <div className="text-2xl font-bold text-orange-900">
-                        ${nextMilestone.amount.toLocaleString()}
+                      <div className="flex items-center gap-2 mb-2">
+                        <Badge className="bg-[#FE6F5E] text-white">Phase {nextMilestone.phase}</Badge>
+                        <span className="text-2xl font-bold text-[#FE4A36]">
+                          ${nextMilestone.amount.toLocaleString()}
+                        </span>
                       </div>
-                      <div className="text-orange-800 font-medium">{nextMilestone.title}</div>
+                      <div className="text-[#FE4A36] font-medium">{nextMilestone.title}</div>
+                      <div className="text-sm text-gray-700 mb-3">{nextMilestone.description}</div>
                       <Progress 
                         value={(mockGoal.currentAmount / nextMilestone.amount) * 100} 
                         className="h-3"
                       />
-                      <div className="text-sm text-orange-700">
-                        ${(nextMilestone.amount - mockGoal.currentAmount).toLocaleString()} to go
+                      <div className="text-sm text-[#FE4A36] font-medium">
+                        ${(nextMilestone.amount - mockGoal.currentAmount).toLocaleString()} remaining
                       </div>
                     </div>
                   </CardContent>
