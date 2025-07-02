@@ -152,11 +152,18 @@ export const mockDonations = [
 // Payment provider information
 export const paymentProviders = [
   {
+    id: "stripe",
+    name: "Stripe",
+    description: "Secure card payments and subscriptions",
+    supportedTypes: ["one-time", "recurring"],
+    icon: "💳"
+  },
+  {
     id: "hitpay",
     name: "HitPay",
     description: "Secure online payments with multiple options",
     supportedTypes: ["one-time", "recurring"],
-    icon: "💳"
+    icon: "🔒"
   },
   {
     id: "remitly",
