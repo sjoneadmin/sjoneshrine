@@ -1,10 +1,11 @@
-// Mock data for donations goal tracker
+// Mock data for Sjòne Shrine Inc. donations goal tracker
 export const mockGoal = {
   id: "goal-1",
-  title: "Open Source Project Funding",
-  description: "Help us build amazing open source tools for the community",
-  targetAmount: 10000,
-  currentAmount: 6750,
+  title: "Sjòne Shrine Inc.",
+  subtitle: "Supporting Emerging Future Female Leaders",
+  description: "Sjòne Shrine Inc. supports emerging future female leaders for virtual athletic performance. These contributions help sustain resources for those seeking E-Sports coaching, recreational therapy, and gear.",
+  targetAmount: 50000,
+  currentAmount: 12500,
   currency: "USD",
   createdAt: "2025-01-01",
   endDate: "2025-12-31"
@@ -13,39 +14,58 @@ export const mockGoal = {
 export const mockMilestones = [
   {
     id: "milestone-1",
-    amount: 2500,
-    title: "Development Tools",
-    description: "Purchase professional development tools and licenses",
-    reward: "Contributors get access to premium development resources",
+    amount: 10000,
+    phase: "I",
+    title: "Research & Visioning",
+    description: "Sjòne Shrine Inc. supports emerging future female leaders for virtual athletic performance. These contributions help sustain resources for those seeking E-Sports coaching, recreational therapy, and gear.",
+    reward: "Foundation research and community engagement",
     achieved: true,
-    achievedDate: "2025-02-15"
+    achievedDate: "2025-02-15",
+    percentage: 20
   },
   {
     id: "milestone-2", 
-    amount: 5000,
-    title: "Server Infrastructure",
-    description: "Set up reliable hosting and CI/CD pipeline",
-    reward: "24/7 uptime and automated deployments",
+    amount: 12500,
+    phase: "II",
+    title: "Architectural Planning",
+    description: "Architectural planning is in progress consulting with licensed professionals and project advisors.",
+    reward: "Professional architectural consultation and planning documentation",
     achieved: true,
-    achievedDate: "2025-04-20"
+    achievedDate: "2025-04-20",
+    percentage: 25
   },
   {
     id: "milestone-3",
-    amount: 7500,
-    title: "Mobile App Development",
-    description: "Start development of mobile companion app",
-    reward: "Beta access to mobile app for all contributors",
+    amount: 25000,
+    phase: "III",
+    title: "Ground Breaking",
+    description: "This milestone marks a turning point in our development process, enabling us to move forward with infrastructure development.",
+    reward: "Infrastructure development initiation and site preparation",
     achieved: false,
-    achievedDate: null
+    achievedDate: null,
+    percentage: 50
   },
   {
     id: "milestone-4",
-    amount: 10000,
-    title: "Full Feature Set",
-    description: "Complete all planned features and documentation",
-    reward: "Lifetime premium access for all early supporters",
+    amount: 37500,
+    phase: "IV",
+    title: "Infrastructure & Equipment",
+    description: "Development and installation of core infrastructure and specialized equipment for E-Sports coaching and recreational therapy programs.",
+    reward: "Equipment procurement and infrastructure setup",
     achieved: false,
-    achievedDate: null
+    achievedDate: null,
+    percentage: 75
+  },
+  {
+    id: "milestone-5",
+    amount: 50000,
+    phase: "V",
+    title: "Buildout & Programming",
+    description: "Complete facility buildout and launch of comprehensive programming for E-Sports coaching, recreational therapy, and community engagement.",
+    reward: "Full program launch and community access",
+    achieved: false,
+    achievedDate: null,
+    percentage: 100
   }
 ];
 
@@ -54,57 +74,117 @@ export const mockDonations = [
     id: "donation-1",
     amount: 500,
     donorName: "Anonymous",
-    message: "Great project! Keep up the good work.",
+    donorEmail: "donor1@example.com",
+    message: "Excited to support female leaders in E-Sports!",
     date: "2025-01-15",
-    type: "one-time"
+    type: "one-time",
+    provider: "hitpay",
+    status: "completed"
   },
   {
     id: "donation-2",
     amount: 1000,
-    donorName: "John Smith",
-    message: "Happy to support open source development",
+    donorName: "Sarah Gaming",
+    donorEmail: "sarah@example.com",
+    message: "This is exactly what the gaming community needs.",
     date: "2025-02-01",
-    type: "one-time"
+    type: "one-time",
+    provider: "square_invoice",
+    status: "completed"
   },
   {
     id: "donation-3",
     amount: 250,
-    donorName: "Sarah Johnson",
-    message: "Love what you're building!",
+    donorName: "Tech Sisters",
+    donorEmail: "contact@techsisters.org",
+    message: "Supporting the next generation of female gamers!",
     date: "2025-02-10",
-    type: "monthly"
+    type: "recurring",
+    provider: "hitpay",
+    status: "active"
   },
   {
     id: "donation-4",
     amount: 2000,
-    donorName: "TechCorp Inc",
-    message: "Corporate sponsorship for Q1",
+    donorName: "GameCorp Foundation",
+    donorEmail: "foundation@gamecorp.com",
+    message: "Corporate sponsorship for Q1 - keep up the amazing work!",
     date: "2025-02-14",
-    type: "corporate"
+    type: "one-time",
+    provider: "square_invoice",
+    status: "completed"
   },
   {
     id: "donation-5",
     amount: 750,
-    donorName: "DevCommunity",
-    message: "From the developer community with love",
+    donorName: "E-Sports Community",
+    donorEmail: "community@esports.org",
+    message: "From the E-Sports community with love and support",
     date: "2025-03-01",
-    type: "community"
+    type: "one-time",
+    provider: "remitly",
+    status: "completed"
   },
   {
     id: "donation-6",
-    amount: 1500,
-    donorName: "Anonymous",
-    message: "Excited for the mobile app!",
+    amount: 3000,
+    donorName: "Female Gamers United",
+    donorEmail: "unite@femalegamers.org",
+    message: "Thrilled to support this incredible initiative!",
     date: "2025-04-15",
-    type: "one-time"
+    type: "one-time",
+    provider: "hitpay",
+    status: "completed"
   },
   {
     id: "donation-7",
-    amount: 750,
-    donorName: "CodeMaster",
-    message: "Thanks for making development easier",
-    date: "2025-05-01",
-    type: "one-time"
+    amount: 5000,
+    donorName: "Anonymous Benefactor",
+    donorEmail: "anonymous@donor.com",
+    message: "Major contribution to reach Phase II milestone!",
+    date: "2025-04-20",
+    type: "one-time",
+    provider: "zelle",
+    status: "completed"
+  }
+];
+
+// Payment provider information
+export const paymentProviders = [
+  {
+    id: "hitpay",
+    name: "HitPay",
+    description: "Secure online payments with multiple options",
+    supportedTypes: ["one-time", "recurring"],
+    icon: "💳"
+  },
+  {
+    id: "remitly",
+    name: "Remitly",
+    description: "International money transfers",
+    supportedTypes: ["one-time"],
+    icon: "🌍"
+  },
+  {
+    id: "square_invoice",
+    name: "Invoice (Square)",
+    description: "Professional invoice payments",
+    supportedTypes: ["one-time"],
+    icon: "📄"
+  },
+  {
+    id: "square_cashapp",
+    name: "Cash App",
+    description: "Quick payments via Cash App",
+    supportedTypes: ["one-time"],
+    icon: "💰"
+  },
+  {
+    id: "zelle",
+    name: "Zelle",
+    description: "Direct bank transfers",
+    supportedTypes: ["one-time"],
+    icon: "🏦"
   }
 ];
 
@@ -113,11 +193,25 @@ export const addDonation = (donation) => {
   const newDonation = {
     ...donation,
     id: `donation-${Date.now()}`,
-    date: new Date().toISOString().split('T')[0]
+    date: new Date().toISOString().split('T')[0],
+    status: "completed"
   };
   mockDonations.unshift(newDonation);
   mockGoal.currentAmount += donation.amount;
+  
+  // Update milestone achievements
+  updateMilestoneAchievements();
+  
   return newDonation;
+};
+
+export const updateMilestoneAchievements = () => {
+  mockMilestones.forEach(milestone => {
+    if (!milestone.achieved && mockGoal.currentAmount >= milestone.amount) {
+      milestone.achieved = true;
+      milestone.achievedDate = new Date().toISOString().split('T')[0];
+    }
+  });
 };
 
 export const addMilestone = (milestone) => {
@@ -147,4 +241,23 @@ export const getNextMilestone = () => {
 
 export const getAchievedMilestones = () => {
   return mockMilestones.filter(m => m.achieved);
+};
+
+export const getCurrentPhase = () => {
+  const achieved = getAchievedMilestones();
+  return achieved.length > 0 ? achieved[achieved.length - 1].phase : "Starting";
+};
+
+export const getLeafProgress = () => {
+  const progress = getProgressPercentage();
+  const leafCount = 7;
+  const progressPerLeaf = 100 / leafCount;
+  const filledLeaves = Math.floor(progress / progressPerLeaf);
+  const partialLeafProgress = (progress % progressPerLeaf) / progressPerLeaf;
+  
+  return {
+    filledLeaves,
+    partialLeafProgress,
+    totalLeaves: leafCount
+  };
 };

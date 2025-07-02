@@ -1,85 +1,130 @@
 import React from 'react';
-import { getProgressPercentage } from '../data/mock';
+import { getProgressPercentage, getLeafProgress } from '../data/mock';
 
 const ProgressLogo = ({ size = 200, className = "" }) => {
   const progress = getProgressPercentage();
+  const { filledLeaves, partialLeafProgress, totalLeaves } = getLeafProgress();
   
-  return (
-    <div className={`relative ${className}`} style={{ width: size, height: size }}>
-      {/* Background Logo */}
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 shadow-2xl flex items-center justify-center">
-        <svg 
-          width={size * 0.6} 
-          height={size * 0.6} 
-          viewBox="0 0 100 100" 
-          className="text-gray-400"
-        >
+  // Leaf positions in semi-circle formation
+  const leafPositions = [
+    { x: 40, y: 85, rotation: -45 },   // Bottom left
+    { x: 70, y: 55, rotation: -25 },   // Mid left
+    { x: 100, y: 35, rotation: -10 }, // Top left
+    { x: 130, y: 25, rotation: 0 },   // Center top
+    { x: 160, y: 35, rotation: 10 },  // Top right
+    { x: 190, y: 55, rotation: 25 },  // Mid right
+    { x: 220, y: 85, rotation: 45 }   // Bottom right
+  ];
+
+  const renderLeaf = (position, index) => {
+    const isFilled = index < filledLeaves;
+    const isPartial = index === filledLeaves && partialLeafProgress > 0;
+    const fillPercentage = isPartial ? partialLeafProgress * 100 : (isFilled ? 100 : 0);
+    
+    return (
+      <g key={index} transform={`translate(${position.x}, ${position.y}) rotate(${position.rotation})`}>
+        {/* Background leaf */}
+        <path
+          d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z"
+          fill="#f3f4f6"
+          stroke="#e5e7eb"
+          strokeWidth="1"
+          className="transition-all duration-1000"
+        />
+        
+        {/* Progress fill */}
+        <defs>
+          <linearGradient id={`leafGradient${index}`} x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset={`${100 - fillPercentage}%`} stopColor="transparent" />
+            <stop offset={`${100 - fillPercentage}%`} stopColor="#FE6F5E" />
+            <stop offset="100%" stopColor="#FE6F5E" />
+          </linearGradient>
+        </defs>
+        
+        <path
+          d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z"
+          fill={`url(#leafGradient${index})`}
+          className="transition-all duration-1000 ease-out"
+        />
+        
+        {/* Shimmer effect for active leaf */}
+        {isPartial && (
           <path
-            d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z"
-            fill="currentColor"
-            stroke="currentColor"
-            strokeWidth="2"
+            d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z"
+            fill="url(#shimmer)"
+            opacity="0.3"
+            className="animate-pulse"
           />
-          <circle cx="50" cy="50" r="15" fill="white" />
-          <text x="50" y="55" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold">
-            OS
-          </text>
-        </svg>
-      </div>
-      
-      {/* Animated Progress Fill */}
-      <div 
-        className="absolute inset-0 rounded-full overflow-hidden transition-all duration-1000 ease-out"
-        style={{
-          background: `conic-gradient(
-            from 0deg at 50% 50%,
-            #10b981 0deg,
-            #059669 ${progress * 3.6}deg,
-            transparent ${progress * 3.6}deg,
-            transparent 360deg
-          )`
-        }}
+        )}
+        
+        {/* Leaf details */}
+        <line
+          x1="0" y1="15"
+          x2="0" y2="-15"
+          stroke={isFilled || isPartial ? "#FE4A36" : "#d1d5db"}
+          strokeWidth="1"
+          className="transition-colors duration-1000"
+        />
+      </g>
+    );
+  };
+
+  return (
+    <div className={`relative ${className}`} style={{ width: size, height: size * 0.7 }}>
+      <svg 
+        width={size} 
+        height={size * 0.7} 
+        viewBox="0 0 260 120" 
+        className="drop-shadow-2xl"
       >
-        <div className="absolute inset-2 rounded-full bg-white"></div>
-      </div>
-      
-      {/* Progress Logo Fill */}
-      <div 
-        className="absolute inset-0 rounded-full overflow-hidden"
-        style={{
-          clipPath: `polygon(0 ${100 - progress}%, 100% ${100 - progress}%, 100% 100%, 0% 100%)`
-        }}
-      >
-        <div className="w-full h-full rounded-full bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 shadow-2xl flex items-center justify-center transition-all duration-1000 ease-out">
-          <svg 
-            width={size * 0.6} 
-            height={size * 0.6} 
-            viewBox="0 0 100 100" 
-            className="text-white"
-          >
-            <path
-              d="M50 10 L90 30 L90 70 L50 90 L10 70 L10 30 Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-            <circle cx="50" cy="50" r="15" fill="rgba(255,255,255,0.9)" />
-            <text x="50" y="55" textAnchor="middle" fontSize="12" fill="currentColor" fontWeight="bold">
-              OS
-            </text>
-          </svg>
-        </div>
-      </div>
+        <defs>
+          {/* Shimmer gradient */}
+          <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ffffff" stopOpacity="0" />
+            <stop offset="50%" stopColor="#ffffff" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
+          </linearGradient>
+          
+          {/* Glow filter */}
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+        
+        {/* Render all leaves */}
+        {leafPositions.map((position, index) => renderLeaf(position, index))}
+        
+        {/* Central glow effect */}
+        <circle
+          cx="130"
+          cy="60"
+          r="40"
+          fill="none"
+          stroke="#FE6F5E"
+          strokeWidth="2"
+          opacity="0.2"
+          filter="url(#glow)"
+          className="animate-pulse"
+        />
+      </svg>
       
       {/* Progress Percentage */}
       <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 text-white px-4 py-2 rounded-full font-bold text-lg shadow-lg">
+        <div className="bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] text-white px-6 py-3 rounded-full font-bold text-xl shadow-lg">
           {progress.toFixed(1)}%
         </div>
       </div>
       
-      {/* Animated Ring */}
-      <div className="absolute inset-0 rounded-full border-4 border-emerald-300 opacity-30 animate-pulse"></div>
+      {/* Phase indicator */}
+      <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+        <div className="bg-white/90 backdrop-blur-sm text-[#FE6F5E] px-4 py-2 rounded-full font-bold text-sm border border-[#FE6F5E]/20">
+          Phase {filledLeaves > 0 ? ['I', 'II', 'III', 'IV', 'V'][filledLeaves - 1] : 'Starting'}
+        </div>
+      </div>
     </div>
   );
 };
