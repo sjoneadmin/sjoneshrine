@@ -114,8 +114,8 @@ function App() {
             element={<Dashboard key={refreshKey} />} 
           />
           <Route 
-            path="/add-donation" 
-            element={<AddDonation onDonationAdded={handleDonationAdded} />} 
+            path="/donate" 
+            element={<DonationForm onDonationAdded={handleDonationAdded} />} 
           />
         </Routes>
         <Toaster />
