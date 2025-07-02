@@ -13,7 +13,7 @@ const Navigation = () => {
   
   const navigation = [
     { name: 'Dashboard', href: '/', icon: Home },
-    { name: 'Add Donation', href: '/add-donation', icon: Plus },
+    { name: 'Donate Now', href: '/donate', icon: Heart },
   ];
 
   const isActive = (path) => location.pathname === path;
