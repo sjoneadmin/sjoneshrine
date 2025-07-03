@@ -228,7 +228,9 @@ const Dashboard = () => {
                           <Badge className="bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] text-white">
                             ${donation.amount}
                           </Badge>
-                          <span className="text-xs text-gray-500 capitalize">{donation.provider}</span>
+                          <span className="text-xs text-gray-500 capitalize">
+                            {donation.provider === 'nbkc_payment' ? 'Bank' : donation.provider === 'paypal' ? 'PayPal' : donation.provider}
+                          </span>
                         </div>
                       </div>
                       {donation.message && (
