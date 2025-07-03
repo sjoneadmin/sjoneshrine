@@ -117,7 +117,7 @@ Donation Details:
 - Amount: $${donationDetails.amount}
 - Donor: ${donationDetails.donorName}
 - Date: ${new Date(donationDetails.date).toLocaleDateString()}
-- Payment Method: ${donationDetails.provider === 'nbkc_payment' ? 'NBKC Bank' : 'PayPal'}
+- Payment Method: ${donationDetails.provider === 'nbkc_payment' ? 'Bank' : 'PayPal'}
 - Transaction ID: ${donationDetails.id}
 
 ${donationDetails.message ? `Message: "${donationDetails.message}"` : ''}
