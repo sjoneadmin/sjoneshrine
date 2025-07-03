@@ -89,7 +89,7 @@ export const mockDonations = [
     message: "This is exactly what the gaming community needs.",
     date: "2025-02-01",
     type: "one-time",
-    provider: "autobooks_invoice",
+    provider: "cashapp",
     status: "completed"
   },
   {
@@ -122,7 +122,7 @@ export const mockDonations = [
     message: "From the E-Sports community with love and support",
     date: "2025-03-01",
     type: "one-time",
-    provider: "remitly",
+    provider: "cashapp",
     status: "completed"
   },
   {
