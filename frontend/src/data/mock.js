@@ -164,6 +164,13 @@ export const paymentProviders = [
     description: "Professional invoicing through NBKC Bank",
     supportedTypes: ["one-time"],
     icon: "📄"
+  },
+  {
+    id: "cashapp",
+    name: "Cash App",
+    description: "Quick and easy mobile payments",
+    supportedTypes: ["one-time"],
+    icon: "💰"
   }
 ];
 
