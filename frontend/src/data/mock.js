@@ -154,7 +154,7 @@ export const paymentProviders = [
   {
     id: "nbkc_payment",
     name: "Bank",
-    description: "Secure payment through NBKC Bank",
+    description: "FDIC Secure transaction network",
     supportedTypes: ["one-time"],
     icon: "🏦",
     hasPaymentLink: true,
