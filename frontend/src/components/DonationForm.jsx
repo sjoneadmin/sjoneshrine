@@ -61,6 +61,37 @@ const DonationForm = ({ onDonationAdded }) => {
     setShowPaymentInfo(true);
   };
 
+  const handlePaymentComplete = () => {
+    const donation = {
+      ...formData,
+      amount: parseFloat(formData.amount)
+    };
+    
+    const newDonation = addDonation(donation);
+    
+    toast({
+      title: "Thank You! 🎉",
+      description: `Your $${donation.amount} donation has been recorded. Thank you for supporting our mission!`,
+    });
+    
+    // Reset form
+    setFormData({
+      amount: '',
+      donorName: '',
+      donorEmail: '',
+      message: '',
+      provider: 'nbkc_payment',
+      donationType: 'one-time'
+    });
+    
+    setShowPaymentInfo(false);
+    
+    // Notify parent component
+    if (onDonationAdded) {
+      onDonationAdded(newDonation);
+    }
+  };
+
   const selectedProvider = paymentProviders.find(p => p.id === formData.provider);
 
   return (
