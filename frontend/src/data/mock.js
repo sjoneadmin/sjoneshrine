@@ -86,7 +86,7 @@ export const mockDonations = [
     amount: 250,
     donorName: "Sarah Gaming",
     donorEmail: "sarah@example.com",
-    message: "This is exactly what the gaming community needs.",
+    message: "",
     date: "2025-02-01",
     type: "one-time",
     provider: "paypal",
