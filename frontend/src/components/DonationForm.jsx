@@ -41,10 +41,10 @@ const DonationForm = ({ onDonationAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!formData.amount || !formData.donorName) {
+    if (!formData.amount || !formData.donorName || !formData.provider) {
       toast({
         title: "Missing Information",
-        description: "Please fill in the amount and donor name.",
+        description: "Please fill in the amount, donor name, and select a payment method.",
         variant: "destructive"
       });
       return;
