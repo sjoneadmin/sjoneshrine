@@ -26,7 +26,8 @@ const DonationForm = ({ onDonationAdded }) => {
   const NBKC_QR_CODE = "/qr-code.png"; // We'll save the QR code as a static asset
 
   const providerIcons = {
-    nbkc_payment: Building
+    nbkc_payment: Building,
+    paypal: CreditCard
   };
 
   const handleInputChange = (field, value) => {
