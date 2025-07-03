@@ -204,7 +204,7 @@ This receipt serves as proof of your donation.
                     <div className="flex justify-between">
                       <span>Payment Method:</span>
                       <span className="font-semibold">
-                        {donationDetails?.provider === 'nbkc_payment' ? 'NBKC Bank' : 'PayPal'}
+                        {donationDetails?.provider === 'nbkc_payment' ? 'Bank' : 'PayPal'}
                       </span>
                     </div>
                     <div className="flex justify-between">
