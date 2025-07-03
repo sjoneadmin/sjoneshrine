@@ -266,7 +266,10 @@ const DonationForm = ({ onDonationAdded }) => {
                     Complete Your ${formData.amount} Donation
                   </h3>
                   <p className="text-gray-600">
-                    Use either the payment link or scan the QR code below
+                    {formData.provider === 'nbkc_payment' 
+                      ? 'Use either the payment link or scan the QR code below'
+                      : 'Click the button below to complete your PayPal payment'
+                    }
                   </p>
                 </div>
 
@@ -274,43 +277,66 @@ const DonationForm = ({ onDonationAdded }) => {
                 <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200">
                   <h4 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
                     <ExternalLink className="w-5 h-5" />
-                    Option 1: Payment Link
+                    {formData.provider === 'nbkc_payment' ? 'Option 1: Payment Link' : 'PayPal Payment'}
                   </h4>
-                  <p className="text-blue-800 mb-4">Click the button below to open the NBKC payment portal:</p>
+                  <p className="text-blue-800 mb-4">
+                    {formData.provider === 'nbkc_payment' 
+                      ? 'Click the button below to open the NBKC payment portal:'
+                      : 'Click the button below to complete your payment via PayPal:'
+                    }
+                  </p>
                   <Button
-                    onClick={() => window.open(NBKC_PAYMENT_LINK, '_blank')}
+                    onClick={() => window.open(
+                      formData.provider === 'nbkc_payment' ? NBKC_PAYMENT_LINK : PAYPAL_PAYMENT_LINK, 
+                      '_blank'
+                    )}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Open NBKC Payment Portal
+                    {formData.provider === 'nbkc_payment' 
+                      ? 'Open NBKC Payment Portal' 
+                      : 'Pay with PayPal'
+                    }
                   </Button>
                 </div>
 
-                {/* QR Code Option */}
-                <div className="p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-2 border-green-200">
-                  <h4 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
-                    <QrCode className="w-5 h-5" />
-                    Option 2: QR Code
-                  </h4>
-                  <p className="text-green-800 mb-4">Scan this QR code with your mobile device:</p>
-                  <div className="flex justify-center">
-                    <div className="p-4 bg-white rounded-lg border-2 border-green-300">
-                      <img 
-                        src={NBKC_QR_CODE} 
-                        alt="NBKC Payment QR Code" 
-                        className="w-48 h-48 mx-auto"
-                      />
+                {/* QR Code Option - Only for NBKC */}
+                {formData.provider === 'nbkc_payment' && (
+                  <div className="p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-2 border-green-200">
+                    <h4 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
+                      <QrCode className="w-5 h-5" />
+                      Option 2: QR Code
+                    </h4>
+                    <p className="text-green-800 mb-4">Scan this QR code with your mobile device:</p>
+                    <div className="flex justify-center">
+                      <div className="p-4 bg-white rounded-lg border-2 border-green-300">
+                        <img 
+                          src={NBKC_QR_CODE} 
+                          alt="NBKC Payment QR Code" 
+                          className="w-48 h-48 mx-auto"
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 {/* Instructions */}
                 <div className="p-4 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
                   <h4 className="font-semibold text-yellow-900 mb-2">Instructions:</h4>
                   <ol className="list-decimal list-inside text-yellow-800 space-y-1">
-                    <li>Use either the payment link or QR code above</li>
-                    <li>Complete your ${formData.amount} donation through NBKC</li>
-                    <li>Return here and click "I've Completed Payment" below</li>
+                    {formData.provider === 'nbkc_payment' ? (
+                      <>
+                        <li>Use either the payment link or QR code above</li>
+                        <li>Complete your ${formData.amount} donation through NBKC</li>
+                        <li>Return here and click "I've Completed Payment" below</li>
+                      </>
+                    ) : (
+                      <>
+                        <li>Click the PayPal button above</li>
+                        <li>Complete your ${formData.amount} donation through PayPal</li>
+                        <li>Return here and click "I've Completed Payment" below</li>
+                      </>
+                    )}
                   </ol>
                 </div>
 
