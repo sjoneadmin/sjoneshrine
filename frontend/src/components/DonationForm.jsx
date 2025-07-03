@@ -431,7 +431,7 @@ This receipt serves as proof of your donation.
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     {formData.provider === 'nbkc_payment' 
-                      ? 'Pay with NBKC Bank' 
+                      ? 'Pay with Bank' 
                       : 'Pay with PayPal'
                     }
                   </Button>
