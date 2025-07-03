@@ -39,10 +39,10 @@ const DonationForm = ({ onDonationAdded }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!formData.amount || !formData.donorName || !formData.provider) {
+    if (!formData.amount || !formData.donorName) {
       toast({
         title: "Missing Information",
-        description: "Please fill in all required fields.",
+        description: "Please fill in the amount and donor name.",
         variant: "destructive"
       });
       return;
@@ -57,59 +57,8 @@ const DonationForm = ({ onDonationAdded }) => {
       return;
     }
 
-    const selectedProvider = paymentProviders.find(p => p.id === formData.provider);
-    if (formData.donationType === 'recurring' && !selectedProvider?.supportedTypes.includes('recurring')) {
-      toast({
-        title: "Unsupported Type",
-        description: `${selectedProvider.name} doesn't support recurring donations. Please select a different provider or choose one-time donation.`,
-        variant: "destructive"
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-    
-    try {
-      // Simulate payment processing
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      const donation = {
-        ...formData,
-        amount: parseFloat(formData.amount)
-      };
-      
-      const newDonation = addDonation(donation);
-      
-      toast({
-        title: "Payment Successful! 🎉",
-        description: `Thank you for your $${donation.amount} donation via ${selectedProvider.name}!`,
-      });
-      
-      // Reset form
-      setFormData({
-        amount: '',
-        donorName: '',
-        donorEmail: '',
-        message: '',
-        provider: '',
-        donationType: 'one-time',
-        interval: 'monthly'
-      });
-      
-      // Notify parent component
-      if (onDonationAdded) {
-        onDonationAdded(newDonation);
-      }
-      
-    } catch (error) {
-      toast({
-        title: "Payment Failed",
-        description: "There was an issue processing your payment. Please try again.",
-        variant: "destructive"
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
+    // Show payment information instead of processing immediately
+    setShowPaymentInfo(true);
   };
 
   const selectedProvider = paymentProviders.find(p => p.id === formData.provider);
