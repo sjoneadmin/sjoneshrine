@@ -89,7 +89,7 @@ export const mockDonations = [
     message: "This is exactly what the gaming community needs.",
     date: "2025-02-01",
     type: "one-time",
-    provider: "nbkc_payment",
+    provider: "paypal",
     status: "completed"
   },
   {
@@ -111,7 +111,7 @@ export const mockDonations = [
     message: "Initial corporate support - looking forward to the progress!",
     date: "2025-02-14",
     type: "one-time",
-    provider: "nbkc_payment",
+    provider: "paypal",
     status: "completed"
   },
   {
@@ -133,7 +133,7 @@ export const mockDonations = [
     message: "Small contribution to get started!",
     date: "2025-04-15",
     type: "one-time",
-    provider: "nbkc_payment",
+    provider: "paypal",
     status: "completed"
   },
   {
