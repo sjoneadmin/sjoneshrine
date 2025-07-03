@@ -184,7 +184,7 @@ const DonationForm = ({ onDonationAdded }) => {
                 <Label className="text-lg font-semibold text-gray-700">
                   Payment Method *
                 </Label>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {paymentProviders.map((provider) => {
                     const Icon = providerIcons[provider.id];
                     const isSupported = formData.donationType === 'one-time' || provider.supportedTypes.includes('recurring');
