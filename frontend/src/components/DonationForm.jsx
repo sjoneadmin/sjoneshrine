@@ -19,12 +19,13 @@ const DonationForm = ({ onDonationAdded }) => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPaymentInfo, setShowPaymentInfo] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [donationDetails, setDonationDetails] = useState(null);
   const { toast } = useToast();
 
   // Actual payment links
   const NBKC_PAYMENT_LINK = "https://app.autobooks.co/pay/kimatrices-1";
   const PAYPAL_PAYMENT_LINK = "https://paypal.me/SjoneShrine";
-  const NBKC_QR_CODE = "/qr-code.png"; // We'll save the QR code as a static asset
 
   const providerIcons = {
     nbkc_payment: Building,
