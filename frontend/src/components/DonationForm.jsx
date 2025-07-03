@@ -415,7 +415,7 @@ This receipt serves as proof of your donation.
                 <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200">
                   <h4 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
                     <ExternalLink className="w-5 h-5" />
-                    {formData.provider === 'nbkc_payment' ? 'NBKC Bank Payment' : 'PayPal Payment'}
+                    {formData.provider === 'nbkc_payment' ? 'Bank Payment' : 'PayPal Payment'}
                   </h4>
                   <p className="text-blue-800 mb-4">
                     {formData.provider === 'nbkc_payment' 
