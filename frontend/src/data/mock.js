@@ -158,7 +158,7 @@ export const paymentProviders = [
     supportedTypes: ["one-time"],
     icon: "🏦",
     hasPaymentLink: true,
-    hasQRCode: true
+    hasQRCode: false
   },
   {
     id: "paypal",
