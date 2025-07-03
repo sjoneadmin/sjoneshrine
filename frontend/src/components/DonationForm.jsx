@@ -359,7 +359,7 @@ const DonationForm = ({ onDonationAdded }) => {
                     ← Back to Form
                   </Button>
                   <Button
-                    onClick={handlePaymentComplete}
+                    onClick={() => handlePaymentRedirect(formData.provider === 'nbkc_payment' ? NBKC_PAYMENT_LINK : PAYPAL_PAYMENT_LINK)}
                     className="flex-1 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white"
                   >
                     I've Completed Payment ✓
