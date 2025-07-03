@@ -119,7 +119,37 @@ const DonationForm = ({ onDonationAdded }) => {
             {!showPaymentInfo ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 
-                {/* Amount */}
+                {/* Payment Provider Selection */}
+                <div className="space-y-4">
+                  <Label className="text-lg font-semibold text-gray-700">
+                    Payment Method *
+                  </Label>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {paymentProviders.map((provider) => {
+                      const Icon = providerIcons[provider.id];
+                      
+                      return (
+                        <div
+                          key={provider.id}
+                          className={`relative p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
+                            formData.provider === provider.id
+                              ? 'border-[#FE6F5E] bg-[#FE6F5E]/5 shadow-md'
+                              : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
+                          }`}
+                          onClick={() => handleInputChange('provider', provider.id)}
+                        >
+                          <div className="flex items-center gap-3">
+                            <Icon className={`w-6 h-6 ${formData.provider === provider.id ? 'text-[#FE6F5E]' : 'text-gray-500'}`} />
+                            <div className="flex-1">
+                              <div className="font-semibold text-gray-900">{provider.name}</div>
+                              <div className="text-sm text-gray-600">{provider.description}</div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
                 <div className="space-y-2">
                   <Label htmlFor="amount" className="text-lg font-semibold text-gray-700">
                     Donation Amount *
