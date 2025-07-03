@@ -109,15 +109,15 @@ const DonationForm = ({ onDonationAdded }) => {
         <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
           <CardHeader className="bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 rounded-t-lg">
             <CardTitle className="flex items-center gap-3 text-2xl font-bold text-gray-900">
-              <CreditCard className="w-8 h-8 text-[#FE6F5E]" />
-              Donation Payment
+              <Building className="w-8 h-8 text-[#FE6F5E]" />
+              {showPaymentInfo ? "Complete Your Donation" : "Donation Details"}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              
-              {/* Amount and Type Row */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {!showPaymentInfo ? (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                
+                {/* Amount */}
                 <div className="space-y-2">
                   <Label htmlFor="amount" className="text-lg font-semibold text-gray-700">
                     Donation Amount *
@@ -138,168 +138,168 @@ const DonationForm = ({ onDonationAdded }) => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
-                  <Label className="text-lg font-semibold text-gray-700">
-                    Donation Type *
-                  </Label>
-                  <RadioGroup 
-                    value={formData.donationType} 
-                    onValueChange={(value) => handleInputChange('donationType', value)}
-                    className="flex flex-col space-y-2"
-                  >
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="one-time" id="one-time" />
-                      <Label htmlFor="one-time" className="font-medium">One-time donation</Label>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <RadioGroupItem value="recurring" id="recurring" />
-                      <Label htmlFor="recurring" className="font-medium">Monthly recurring</Label>
-                    </div>
-                  </RadioGroup>
-                </div>
-              </div>
+                {/* Donor Information */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="donorName" className="text-lg font-semibold text-gray-700">
+                      Full Name *
+                    </Label>
+                    <Input
+                      id="donorName"
+                      type="text"
+                      placeholder="Enter your full name"
+                      value={formData.donorName}
+                      onChange={(e) => handleInputChange('donorName', e.target.value)}
+                      className="h-12 text-lg border-2 border-gray-200 focus:border-[#FE6F5E] transition-colors"
+                      required
+                    />
+                  </div>
 
-              {/* Payment Provider Selection */}
-              <div className="space-y-4">
-                <Label className="text-lg font-semibold text-gray-700">
-                  Payment Method *
-                </Label>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {paymentProviders.map((provider) => {
-                    const Icon = providerIcons[provider.id];
-                    const isSupported = formData.donationType === 'one-time' || provider.supportedTypes.includes('recurring');
-                    
-                    return (
-                      <div
-                        key={provider.id}
-                        className={`relative p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
-                          formData.provider === provider.id
-                            ? 'border-[#FE6F5E] bg-[#FE6F5E]/5 shadow-md'
-                            : isSupported
-                            ? 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
-                            : 'border-gray-100 bg-gray-50 cursor-not-allowed opacity-50'
-                        }`}
-                        onClick={() => isSupported && handleInputChange('provider', provider.id)}
-                      >
-                        <div className="flex items-center gap-3">
-                          <Icon className={`w-6 h-6 ${formData.provider === provider.id ? 'text-[#FE6F5E]' : 'text-gray-500'}`} />
-                          <div className="flex-1">
-                            <div className="font-semibold text-gray-900">{provider.name}</div>
-                            <div className="text-sm text-gray-600">{provider.description}</div>
-                          </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="donorEmail" className="text-lg font-semibold text-gray-700">
+                      Email Address
+                    </Label>
+                    <Input
+                      id="donorEmail"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.donorEmail}
+                      onChange={(e) => handleInputChange('donorEmail', e.target.value)}
+                      className="h-12 text-lg border-2 border-gray-200 focus:border-[#FE6F5E] transition-colors"
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div className="space-y-2">
+                  <Label htmlFor="message" className="text-lg font-semibold text-gray-700">
+                    Message of Support (Optional)
+                  </Label>
+                  <Textarea
+                    id="message"
+                    placeholder="Share why you're supporting our mission..."
+                    value={formData.message}
+                    onChange={(e) => handleInputChange('message', e.target.value)}
+                    className="min-h-[100px] text-lg border-2 border-gray-200 focus:border-[#FE6F5E] transition-colors resize-none"
+                    rows={4}
+                  />
+                </div>
+
+                {/* Preview */}
+                {formData.amount && formData.donorName && (
+                  <div className="p-6 bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 border-2 border-[#FE6F5E]/20 rounded-lg">
+                    <h3 className="font-semibold text-[#FE4A36] mb-3 flex items-center gap-2">
+                      <Building className="w-5 h-5" />
+                      Donation Summary
+                    </h3>
+                    <div className="space-y-2 text-gray-700">
+                      <div className="flex justify-between">
+                        <span>Amount:</span>
+                        <span className="font-bold">${parseFloat(formData.amount || 0).toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Donor:</span>
+                        <span className="font-semibold">{formData.donorName}</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span>Payment Method:</span>
+                        <span className="font-semibold">NBKC Bank Payment</span>
+                      </div>
+                      {formData.message && (
+                        <div className="mt-3 pt-3 border-t border-[#FE6F5E]/20">
+                          <div className="italic text-sm">"{formData.message}"</div>
                         </div>
-                        {!isSupported && formData.donationType === 'recurring' && (
-                          <div className="absolute top-2 right-2">
-                            <span className="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">
-                              No recurring
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Donor Information */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="donorName" className="text-lg font-semibold text-gray-700">
-                    Full Name *
-                  </Label>
-                  <Input
-                    id="donorName"
-                    type="text"
-                    placeholder="Enter your full name"
-                    value={formData.donorName}
-                    onChange={(e) => handleInputChange('donorName', e.target.value)}
-                    className="h-12 text-lg border-2 border-gray-200 focus:border-[#FE6F5E] transition-colors"
-                    required
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="donorEmail" className="text-lg font-semibold text-gray-700">
-                    Email Address
-                  </Label>
-                  <Input
-                    id="donorEmail"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.donorEmail}
-                    onChange={(e) => handleInputChange('donorEmail', e.target.value)}
-                    className="h-12 text-lg border-2 border-gray-200 focus:border-[#FE6F5E] transition-colors"
-                  />
-                </div>
-              </div>
-
-              {/* Message */}
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-lg font-semibold text-gray-700">
-                  Message of Support (Optional)
-                </Label>
-                <Textarea
-                  id="message"
-                  placeholder="Share why you're supporting our mission..."
-                  value={formData.message}
-                  onChange={(e) => handleInputChange('message', e.target.value)}
-                  className="min-h-[100px] text-lg border-2 border-gray-200 focus:border-[#FE6F5E] transition-colors resize-none"
-                  rows={4}
-                />
-              </div>
-
-              {/* Preview */}
-              {formData.amount && formData.donorName && formData.provider && (
-                <div className="p-6 bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 border-2 border-[#FE6F5E]/20 rounded-lg">
-                  <h3 className="font-semibold text-[#FE4A36] mb-3 flex items-center gap-2">
-                    <Zap className="w-5 h-5" />
-                    Payment Summary
-                  </h3>
-                  <div className="space-y-2 text-gray-700">
-                    <div className="flex justify-between">
-                      <span>Amount:</span>
-                      <span className="font-bold">${parseFloat(formData.amount || 0).toLocaleString()}</span>
+                      )}
                     </div>
-                    <div className="flex justify-between">
-                      <span>Donor:</span>
-                      <span className="font-semibold">{formData.donorName}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Payment Method:</span>
-                      <span className="font-semibold">{selectedProvider?.name}</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Type:</span>
-                      <span className="font-semibold capitalize">{formData.donationType.replace('-', ' ')}</span>
-                    </div>
-                    {formData.message && (
-                      <div className="mt-3 pt-3 border-t border-[#FE6F5E]/20">
-                        <div className="italic text-sm">"{formData.message}"</div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              {/* Submit Button */}
-              <Button
-                type="submit"
-                disabled={isSubmitting || !formData.amount || !formData.donorName || !formData.provider}
-                className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-              >
-                {isSubmitting ? (
-                  <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 border-2 border-white border-t-transparent animate-spin rounded-full"></div>
-                    Processing Payment...
-                  </div>
-                ) : (
-                  <div className="flex items-center gap-3">
-                    <Heart className="w-6 h-6" />
-                    Donate ${formData.amount || '0'} Now
                   </div>
                 )}
-              </Button>
-            </form>
+
+                {/* Submit Button */}
+                <Button
+                  type="submit"
+                  disabled={!formData.amount || !formData.donorName}
+                  className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  <div className="flex items-center gap-3">
+                    <Heart className="w-6 h-6" />
+                    Continue to Payment
+                  </div>
+                </Button>
+              </form>
+            ) : (
+              /* Payment Information Display */
+              <div className="space-y-6">
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                    Complete Your ${formData.amount} Donation
+                  </h3>
+                  <p className="text-gray-600">
+                    Use either the payment link or scan the QR code below
+                  </p>
+                </div>
+
+                {/* Payment Link Option */}
+                <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200">
+                  <h4 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                    <ExternalLink className="w-5 h-5" />
+                    Option 1: Payment Link
+                  </h4>
+                  <p className="text-blue-800 mb-4">Click the button below to open the NBKC payment portal:</p>
+                  <Button
+                    onClick={() => window.open(NBKC_PAYMENT_LINK, '_blank')}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2" />
+                    Open NBKC Payment Portal
+                  </Button>
+                </div>
+
+                {/* QR Code Option */}
+                <div className="p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-2 border-green-200">
+                  <h4 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
+                    <QrCode className="w-5 h-5" />
+                    Option 2: QR Code
+                  </h4>
+                  <p className="text-green-800 mb-4">Scan this QR code with your mobile device:</p>
+                  <div className="flex justify-center">
+                    <div className="p-4 bg-white rounded-lg border-2 border-green-300">
+                      <img 
+                        src={NBKC_QR_CODE} 
+                        alt="NBKC Payment QR Code" 
+                        className="w-48 h-48 mx-auto"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Instructions */}
+                <div className="p-4 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
+                  <h4 className="font-semibold text-yellow-900 mb-2">Instructions:</h4>
+                  <ol className="list-decimal list-inside text-yellow-800 space-y-1">
+                    <li>Use either the payment link or QR code above</li>
+                    <li>Complete your ${formData.amount} donation through NBKC</li>
+                    <li>Return here and click "I've Completed Payment" below</li>
+                  </ol>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-4">
+                  <Button
+                    onClick={() => setShowPaymentInfo(false)}
+                    variant="outline"
+                    className="flex-1"
+                  >
+                    ← Back to Form
+                  </Button>
+                  <Button
+                    onClick={handlePaymentComplete}
+                    className="flex-1 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white"
+                  >
+                    I've Completed Payment ✓
+                  </Button>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>
