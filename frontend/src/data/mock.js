@@ -153,7 +153,7 @@ export const mockDonations = [
 export const paymentProviders = [
   {
     id: "nbkc_payment",
-    name: "NBKC Bank Payment",
+    name: "Bank",
     description: "Secure payment through NBKC Bank",
     supportedTypes: ["one-time"],
     icon: "🏦",
