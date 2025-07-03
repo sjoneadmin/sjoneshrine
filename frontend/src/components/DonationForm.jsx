@@ -218,7 +218,7 @@ const DonationForm = ({ onDonationAdded }) => {
                 </div>
 
                 {/* Preview */}
-                {formData.amount && formData.donorName && (
+                {formData.amount && formData.donorName && formData.provider && (
                   <div className="p-6 bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 border-2 border-[#FE6F5E]/20 rounded-lg">
                     <h3 className="font-semibold text-[#FE4A36] mb-3 flex items-center gap-2">
                       <Building className="w-5 h-5" />
@@ -235,7 +235,7 @@ const DonationForm = ({ onDonationAdded }) => {
                       </div>
                       <div className="flex justify-between">
                         <span>Payment Method:</span>
-                        <span className="font-semibold">NBKC Bank Payment</span>
+                        <span className="font-semibold">{selectedProvider?.name}</span>
                       </div>
                       {formData.message && (
                         <div className="mt-3 pt-3 border-t border-[#FE6F5E]/20">
@@ -249,7 +249,7 @@ const DonationForm = ({ onDonationAdded }) => {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  disabled={!formData.amount || !formData.donorName}
+                  disabled={!formData.amount || !formData.donorName || !formData.provider}
                   className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   <div className="flex items-center gap-3">
