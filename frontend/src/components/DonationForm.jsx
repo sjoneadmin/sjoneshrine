@@ -419,7 +419,7 @@ This receipt serves as proof of your donation.
                   </h4>
                   <p className="text-blue-800 mb-4">
                     {formData.provider === 'nbkc_payment' 
-                      ? 'Click the button below to complete your payment through NBKC Bank:'
+                      ? 'Click the button below to complete your payment through your bank:'
                       : 'Click the button below to complete your payment via PayPal:'
                     }
                   </p>
