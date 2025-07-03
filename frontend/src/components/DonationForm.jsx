@@ -82,7 +82,7 @@ const DonationForm = ({ onDonationAdded }) => {
       donorName: '',
       donorEmail: '',
       message: '',
-      provider: 'nbkc_payment',
+      provider: '',
       donationType: 'one-time'
     });
     
