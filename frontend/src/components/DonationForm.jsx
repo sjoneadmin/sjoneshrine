@@ -64,18 +64,33 @@ const DonationForm = ({ onDonationAdded }) => {
     setShowPaymentInfo(true);
   };
 
-  const handlePaymentComplete = () => {
-    const donation = {
-      ...formData,
-      amount: parseFloat(formData.amount)
-    };
+  const handlePaymentRedirect = (paymentUrl) => {
+    // Open payment page in new tab
+    window.open(paymentUrl, '_blank');
     
-    const newDonation = addDonation(donation);
-    
-    toast({
-      title: "Thank You! 🎉",
-      description: `Your $${donation.amount} donation has been recorded. Thank you for supporting our mission!`,
-    });
+    // Show confirmation page after a brief delay
+    setTimeout(() => {
+      const donation = {
+        ...formData,
+        amount: parseFloat(formData.amount)
+      };
+      
+      const newDonation = addDonation(donation);
+      setDonationDetails(newDonation);
+      setShowConfirmation(true);
+      setShowPaymentInfo(false);
+      
+      // Notify parent component
+      if (onDonationAdded) {
+        onDonationAdded(newDonation);
+      }
+    }, 1000);
+  };
+
+  const handleStartOver = () => {
+    setShowConfirmation(false);
+    setShowPaymentInfo(false);
+    setDonationDetails(null);
     
     // Reset form
     setFormData({
@@ -86,13 +101,6 @@ const DonationForm = ({ onDonationAdded }) => {
       provider: '',
       donationType: 'one-time'
     });
-    
-    setShowPaymentInfo(false);
-    
-    // Notify parent component
-    if (onDonationAdded) {
-      onDonationAdded(newDonation);
-    }
   };
 
   const selectedProvider = paymentProviders.find(p => p.id === formData.provider);
