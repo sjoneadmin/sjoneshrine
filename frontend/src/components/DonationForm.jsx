@@ -21,9 +21,9 @@ const DonationForm = ({ onDonationAdded }) => {
   const [showPaymentInfo, setShowPaymentInfo] = useState(false);
   const { toast } = useToast();
 
-  // Placeholder for your actual NBKC payment link and QR code
-  const NBKC_PAYMENT_LINK = "https://your-nbkc-payment-link.com";
-  const NBKC_QR_CODE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="; // Placeholder
+  // Actual NBKC/Autobooks payment link and QR code
+  const NBKC_PAYMENT_LINK = "https://app.autobooks.co/pay/kimatrices-1";
+  const NBKC_QR_CODE = "/qr-code.png"; // We'll save the QR code as a static asset
 
   const providerIcons = {
     nbkc_payment: Building
