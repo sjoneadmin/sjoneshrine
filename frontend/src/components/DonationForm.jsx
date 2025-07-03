@@ -3,12 +3,10 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
-import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Label } from './ui/label';
 import { useToast } from '../hooks/use-toast';
 import { addDonation, paymentProviders } from '../data/mock';
-import { CreditCard, Heart, Zap, Globe, FileText, DollarSign, Building } from 'lucide-react';
+import { CreditCard, Heart, ExternalLink, QrCode, Building } from 'lucide-react';
 
 const DonationForm = ({ onDonationAdded }) => {
   const [formData, setFormData] = useState({
