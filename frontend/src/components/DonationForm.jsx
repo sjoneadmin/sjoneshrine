@@ -25,7 +25,8 @@ const DonationForm = ({ onDonationAdded }) => {
 
   const providerIcons = {
     remitly: Globe,
-    autobooks_invoice: FileText
+    autobooks_invoice: FileText,
+    cashapp: DollarSign
   };
 
   const handleInputChange = (field, value) => {
