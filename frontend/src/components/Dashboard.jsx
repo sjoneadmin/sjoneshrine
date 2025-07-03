@@ -1,16 +1,41 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Progress } from './ui/progress';
 import { Badge } from './ui/badge';
 import ProgressLogo from './ProgressLogo';
-import { mockGoal, mockMilestones, mockDonations, getProgressPercentage, getNextMilestone, getCurrentPhase } from '../data/mock';
+import { 
+  getGoal, 
+  getMilestones, 
+  getDonations, 
+  getProgressPercentage, 
+  getNextMilestone, 
+  getCurrentPhase,
+  initializeData
+} from '../utils/localStorage';
 import { Target, Trophy, DollarSign, Users, Calendar, Gift, Gamepad2, Heart } from 'lucide-react';
 
 const Dashboard = () => {
-  const progress = getProgressPercentage();
+  const [goal, setGoal] = useState(null);
+  const [milestones, setMilestones] = useState([]);
+  const [donations, setDonations] = useState([]);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    // Initialize data on first load
+    initializeData();
+    
+    // Load data from localStorage
+    setGoal(getGoal());
+    setMilestones(getMilestones());
+    setDonations(getDonations());
+    setProgress(getProgressPercentage());
+  }, []);
+
+  if (!goal) return <div>Loading...</div>;
+
   const nextMilestone = getNextMilestone();
-  const recentDonations = mockDonations.slice(0, 5);
-  const achievedMilestones = mockMilestones.filter(m => m.achieved);
+  const recentDonations = donations.slice(0, 5);
+  const achievedMilestones = milestones.filter(m => m.achieved);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-50">
@@ -22,30 +47,30 @@ const Dashboard = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="text-white space-y-6">
                 <h1 className="text-5xl font-black leading-tight">
-                  {mockGoal.title}
+                  {goal.title}
                   <span className="block text-2xl font-normal text-orange-100 mt-2">
-                    {mockGoal.subtitle}
+                    {goal.subtitle}
                   </span>
                 </h1>
                 <p className="text-xl text-orange-100 leading-relaxed">
-                  {mockGoal.description}
+                  {goal.description}
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4">
                     <DollarSign className="w-8 h-8" />
                     <div>
                       <div className="text-4xl font-bold">
-                        ${mockGoal.currentAmount.toLocaleString()}
+                        ${goal.currentAmount.toLocaleString()}
                       </div>
                       <div className="text-orange-200">
-                        of ${mockGoal.targetAmount.toLocaleString()} goal
+                        of ${goal.targetAmount.toLocaleString()} goal
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2">
                       <Users className="w-6 h-6" />
-                      <span className="text-xl">{mockDonations.length} supporters</span>
+                      <span className="text-xl">{donations.length} supporters</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Gamepad2 className="w-6 h-6" />
@@ -107,7 +132,7 @@ const Dashboard = () => {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">
-                      ${(mockGoal.currentAmount / mockDonations.length).toFixed(0)}
+                      ${donations.length > 0 ? (goal.currentAmount / donations.length).toFixed(0) : '0'}
                     </div>
                     <div className="text-gray-600">Avg Donation</div>
                   </div>
@@ -123,7 +148,7 @@ const Dashboard = () => {
                   </div>
                   <div>
                     <div className="text-2xl font-bold text-gray-900">
-                      ${(mockGoal.targetAmount - mockGoal.currentAmount).toLocaleString()}
+                      ${(goal.targetAmount - goal.currentAmount).toLocaleString()}
                     </div>
                     <div className="text-gray-600">Remaining</div>
                   </div>
@@ -149,12 +174,12 @@ const Dashboard = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {mockMilestones.map((milestone, index) => (
+                  {milestones.map((milestone, index) => (
                     <div key={milestone.id} className="relative">
                       <div className={`p-6 rounded-xl border-2 transition-all duration-300 ${
                         milestone.achieved 
                           ? 'bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 border-[#FE6F5E] shadow-lg' 
-                          : milestone.amount <= mockGoal.currentAmount
+                          : milestone.amount <= goal.currentAmount
                           ? 'bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-400 shadow-lg animate-pulse'
                           : 'bg-gray-50 border-gray-200 hover:border-gray-300'
                       }`}>
@@ -191,17 +216,17 @@ const Dashboard = () => {
                         <div className="mt-4">
                           <div className="flex justify-between text-sm text-gray-600 mb-1">
                             <span>Progress</span>
-                            <span>{Math.min((mockGoal.currentAmount / milestone.amount) * 100, 100).toFixed(1)}%</span>
+                            <span>{Math.min((goal.currentAmount / milestone.amount) * 100, 100).toFixed(1)}%</span>
                           </div>
                           <Progress 
-                            value={Math.min((mockGoal.currentAmount / milestone.amount) * 100, 100)} 
+                            value={Math.min((goal.currentAmount / milestone.amount) * 100, 100)} 
                             className="h-3 bg-gray-200"
                           />
                         </div>
                       </div>
                       
                       {/* Connector line */}
-                      {index < mockMilestones.length - 1 && (
+                      {index < milestones.length - 1 && (
                         <div className="absolute left-1/2 bottom-0 w-1 h-6 bg-gradient-to-b from-[#FE6F5E]/50 to-gray-200 transform translate-y-full"></div>
                       )}
                     </div>
@@ -268,11 +293,11 @@ const Dashboard = () => {
                       <div className="text-[#FE4A36] font-medium">{nextMilestone.title}</div>
                       <div className="text-sm text-gray-700 mb-3">{nextMilestone.description}</div>
                       <Progress 
-                        value={(mockGoal.currentAmount / nextMilestone.amount) * 100} 
+                        value={(goal.currentAmount / nextMilestone.amount) * 100} 
                         className="h-3"
                       />
                       <div className="text-sm text-[#FE4A36] font-medium">
-                        ${(nextMilestone.amount - mockGoal.currentAmount).toLocaleString()} remaining
+                        ${(nextMilestone.amount - goal.currentAmount).toLocaleString()} remaining
                       </div>
                     </div>
                   </CardContent>

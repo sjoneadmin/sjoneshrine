@@ -5,7 +5,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { useToast } from '../hooks/use-toast';
-import { addDonation, paymentProviders } from '../data/mock';
+import { addDonation, paymentProviders } from '../utils/localStorage';
 import { Heart, ExternalLink, Building, DollarSign, CreditCard, CheckCircle, Download } from 'lucide-react';
 
 const DonationForm = ({ onDonationAdded }) => {
@@ -80,7 +80,7 @@ const DonationForm = ({ onDonationAdded }) => {
       setShowConfirmation(true);
       setShowPaymentInfo(false);
       
-      // Notify parent component
+      // Notify parent component to refresh
       if (onDonationAdded) {
         onDonationAdded(newDonation);
       }

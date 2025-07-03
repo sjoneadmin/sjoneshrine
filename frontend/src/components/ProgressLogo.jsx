@@ -1,9 +1,16 @@
-import React from 'react';
-import { getProgressPercentage, getLeafProgress } from '../data/mock';
+import React, { useState, useEffect } from 'react';
+import { getProgressPercentage, getLeafProgress } from '../utils/localStorage';
 
 const ProgressLogo = ({ size = 200, className = "" }) => {
-  const progress = getProgressPercentage();
-  const { filledLeaves, partialLeafProgress, totalLeaves } = getLeafProgress();
+  const [progress, setProgress] = useState(0);
+  const [leafData, setLeafData] = useState({ filledLeaves: 0, partialLeafProgress: 0, totalLeaves: 7 });
+
+  useEffect(() => {
+    setProgress(getProgressPercentage());
+    setLeafData(getLeafProgress());
+  }, []);
+
+  const { filledLeaves, partialLeafProgress, totalLeaves } = leafData;
   
   // Leaf positions in semi-circle formation
   const leafPositions = [
