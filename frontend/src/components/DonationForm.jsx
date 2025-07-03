@@ -14,12 +14,16 @@ const DonationForm = ({ onDonationAdded }) => {
     donorName: '',
     donorEmail: '',
     message: '',
-    provider: '',
-    donationType: 'one-time',
-    interval: 'monthly'
+    provider: 'nbkc_payment',
+    donationType: 'one-time'
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showPaymentInfo, setShowPaymentInfo] = useState(false);
   const { toast } = useToast();
+
+  // Placeholder for your actual NBKC payment link and QR code
+  const NBKC_PAYMENT_LINK = "https://your-nbkc-payment-link.com";
+  const NBKC_QR_CODE = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="; // Placeholder
 
   const providerIcons = {
     nbkc_payment: Building
