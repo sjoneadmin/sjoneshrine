@@ -24,11 +24,8 @@ const DonationForm = ({ onDonationAdded }) => {
   const { toast } = useToast();
 
   const providerIcons = {
-    stripe: CreditCard,
     remitly: Globe,
-    autobooks_invoice: FileText,
-    cashapp: DollarSign,
-    zelle: Building
+    autobooks_invoice: FileText
   };
 
   const handleInputChange = (field, value) => {
