@@ -78,7 +78,7 @@ export const mockDonations = [
     message: "Excited to support female leaders in E-Sports!",
     date: "2025-01-15",
     type: "one-time",
-    provider: "stripe",
+    provider: "remitly",
     status: "completed"
   },
   {
@@ -89,7 +89,7 @@ export const mockDonations = [
     message: "This is exactly what the gaming community needs.",
     date: "2025-02-01",
     type: "one-time",
-    provider: "cashapp",
+    provider: "autobooks_invoice",
     status: "completed"
   },
   {
@@ -99,9 +99,9 @@ export const mockDonations = [
     donorEmail: "contact@techsisters.org",
     message: "Supporting the next generation of female gamers!",
     date: "2025-02-10",
-    type: "recurring",
-    provider: "stripe",
-    status: "active"
+    type: "one-time",
+    provider: "remitly",
+    status: "completed"
   },
   {
     id: "donation-4",
@@ -133,7 +133,7 @@ export const mockDonations = [
     message: "Small contribution to get started!",
     date: "2025-04-15",
     type: "one-time",
-    provider: "stripe",
+    provider: "autobooks_invoice",
     status: "completed"
   },
   {
@@ -144,7 +144,7 @@ export const mockDonations = [
     message: "Every step counts toward the goal!",
     date: "2025-04-20",
     type: "one-time",
-    provider: "zelle",
+    provider: "remitly",
     status: "completed"
   }
 ];
