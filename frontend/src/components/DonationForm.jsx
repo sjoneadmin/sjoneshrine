@@ -125,7 +125,7 @@ const DonationForm = ({ onDonationAdded }) => {
             </CardTitle>
           </CardHeader>
           <CardContent className="p-8">
-            {!showPaymentInfo ? (
+            {!showPaymentInfo && !showConfirmation ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 
                 {/* Payment Provider Selection */}
