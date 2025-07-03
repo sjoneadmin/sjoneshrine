@@ -78,7 +78,7 @@ export const mockDonations = [
     message: "Excited to support female leaders in E-Sports!",
     date: "2025-01-15",
     type: "one-time",
-    provider: "remitly",
+    provider: "nbkc_payment",
     status: "completed"
   },
   {
@@ -89,7 +89,7 @@ export const mockDonations = [
     message: "This is exactly what the gaming community needs.",
     date: "2025-02-01",
     type: "one-time",
-    provider: "cashapp",
+    provider: "nbkc_payment",
     status: "completed"
   },
   {
@@ -100,7 +100,7 @@ export const mockDonations = [
     message: "Supporting the next generation of female gamers!",
     date: "2025-02-10",
     type: "one-time",
-    provider: "remitly",
+    provider: "nbkc_payment",
     status: "completed"
   },
   {
@@ -111,7 +111,7 @@ export const mockDonations = [
     message: "Initial corporate support - looking forward to the progress!",
     date: "2025-02-14",
     type: "one-time",
-    provider: "autobooks_invoice",
+    provider: "nbkc_payment",
     status: "completed"
   },
   {
@@ -122,7 +122,7 @@ export const mockDonations = [
     message: "From the E-Sports community with love and support",
     date: "2025-03-01",
     type: "one-time",
-    provider: "cashapp",
+    provider: "nbkc_payment",
     status: "completed"
   },
   {
@@ -133,7 +133,7 @@ export const mockDonations = [
     message: "Small contribution to get started!",
     date: "2025-04-15",
     type: "one-time",
-    provider: "autobooks_invoice",
+    provider: "nbkc_payment",
     status: "completed"
   },
   {
@@ -144,7 +144,7 @@ export const mockDonations = [
     message: "Every step counts toward the goal!",
     date: "2025-04-20",
     type: "one-time",
-    provider: "remitly",
+    provider: "nbkc_payment",
     status: "completed"
   }
 ];
