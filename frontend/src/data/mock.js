@@ -141,7 +141,7 @@ export const mockDonations = [
     amount: 450,
     donorName: "Community Supporter",
     donorEmail: "supporter@donor.com",
-    message: "Every step counts toward the goal!",
+    message: "",
     date: "2025-04-20",
     type: "one-time",
     provider: "nbkc_payment",
