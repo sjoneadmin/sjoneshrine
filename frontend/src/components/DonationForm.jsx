@@ -103,6 +103,42 @@ const DonationForm = ({ onDonationAdded }) => {
     });
   };
 
+  const generateReceipt = () => {
+    if (!donationDetails) return;
+    
+    const receiptData = `
+DONATION RECEIPT
+================
+
+Sjòne Shrine Inc.
+Supporting Emerging Future Female Leaders
+
+Donation Details:
+- Amount: $${donationDetails.amount}
+- Donor: ${donationDetails.donorName}
+- Date: ${new Date(donationDetails.date).toLocaleDateString()}
+- Payment Method: ${donationDetails.provider === 'nbkc_payment' ? 'NBKC Bank' : 'PayPal'}
+- Transaction ID: ${donationDetails.id}
+
+${donationDetails.message ? `Message: "${donationDetails.message}"` : ''}
+
+Thank you for supporting our mission to help
+emerging future female leaders in virtual
+athletic performance, E-Sports coaching,
+recreational therapy, and gear.
+
+This receipt serves as proof of your donation.
+`;
+
+    const blob = new Blob([receiptData], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `donation-receipt-${donationDetails.id}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const selectedProvider = paymentProviders.find(p => p.id === formData.provider);
 
   return (
@@ -113,19 +149,113 @@ const DonationForm = ({ onDonationAdded }) => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] rounded-full mb-4">
             <Heart className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl font-black text-gray-900 mb-2">Support Our Mission</h1>
-          <p className="text-xl text-gray-600">Choose your payment method and make a difference</p>
+          <h1 className="text-4xl font-black text-gray-900 mb-2">
+            {showConfirmation ? "Thank You!" : "Support Our Mission"}
+          </h1>
+          <p className="text-xl text-gray-600">
+            {showConfirmation 
+              ? "Your donation has been processed successfully" 
+              : "Choose your payment method and make a difference"}
+          </p>
         </div>
 
         <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
           <CardHeader className="bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 rounded-t-lg">
             <CardTitle className="flex items-center gap-3 text-2xl font-bold text-gray-900">
-              <Building className="w-8 h-8 text-[#FE6F5E]" />
-              {showPaymentInfo ? "Complete Your Donation" : "Donation Details"}
+              {showConfirmation ? (
+                <>
+                  <CheckCircle className="w-8 h-8 text-[#FE6F5E]" />
+                  Donation Confirmation
+                </>
+              ) : (
+                <>
+                  <Building className="w-8 h-8 text-[#FE6F5E]" />
+                  {showPaymentInfo ? "Complete Your Donation" : "Donation Details"}
+                </>
+              )}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-8">
-            {!showPaymentInfo && !showConfirmation ? (
+            {showConfirmation ? (
+              /* Confirmation Page */
+              <div className="space-y-6 text-center">
+                <div className="p-6 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg">
+                  <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-green-800 mb-2">
+                    Payment Successful!
+                  </h3>
+                  <p className="text-green-700">
+                    Your ${donationDetails?.amount} donation has been processed and recorded.
+                  </p>
+                </div>
+
+                {/* Donation Summary */}
+                <div className="p-6 bg-gradient-to-r from-[#FE6F5E]/10 to-[#FE4A36]/10 border-2 border-[#FE6F5E]/20 rounded-lg text-left">
+                  <h4 className="font-semibold text-[#FE4A36] mb-4 text-center">Donation Summary</h4>
+                  <div className="space-y-3 text-gray-700">
+                    <div className="flex justify-between">
+                      <span>Amount:</span>
+                      <span className="font-bold">${donationDetails?.amount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Donor:</span>
+                      <span className="font-semibold">{donationDetails?.donorName}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Payment Method:</span>
+                      <span className="font-semibold">
+                        {donationDetails?.provider === 'nbkc_payment' ? 'NBKC Bank' : 'PayPal'}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Date:</span>
+                      <span className="font-semibold">
+                        {donationDetails?.date ? new Date(donationDetails.date).toLocaleDateString() : ''}
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Transaction ID:</span>
+                      <span className="font-mono text-sm">{donationDetails?.id}</span>
+                    </div>
+                    {donationDetails?.message && (
+                      <div className="mt-4 pt-4 border-t border-[#FE6F5E]/20">
+                        <div className="text-sm font-medium text-gray-600 mb-1">Your Message:</div>
+                        <div className="italic">"{donationDetails.message}"</div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Thank You Message */}
+                <div className="p-6 bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-lg">
+                  <h4 className="font-bold text-purple-800 mb-2">Thank You for Your Support!</h4>
+                  <p className="text-purple-700">
+                    Your contribution helps us support emerging future female leaders for virtual 
+                    athletic performance, E-Sports coaching, recreational therapy, and gear. 
+                    Every donation brings us closer to our goals!
+                  </p>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex gap-4">
+                  <Button
+                    onClick={generateReceipt}
+                    variant="outline"
+                    className="flex-1 border-[#FE6F5E] text-[#FE6F5E] hover:bg-[#FE6F5E] hover:text-white"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download Receipt
+                  </Button>
+                  <Button
+                    onClick={handleStartOver}
+                    className="flex-1 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white"
+                  >
+                    <Heart className="w-4 h-4 mr-2" />
+                    Make Another Donation
+                  </Button>
+                </div>
+              </div>
+            ) : !showPaymentInfo ? (
               <form onSubmit={handleSubmit} className="space-y-6">
                 
                 {/* Payment Provider Selection */}
@@ -159,6 +289,8 @@ const DonationForm = ({ onDonationAdded }) => {
                     })}
                   </div>
                 </div>
+
+                {/* Amount */}
                 <div className="space-y-2">
                   <Label htmlFor="amount" className="text-lg font-semibold text-gray-700">
                     Donation Amount *
@@ -275,10 +407,7 @@ const DonationForm = ({ onDonationAdded }) => {
                     Complete Your ${formData.amount} Donation
                   </h3>
                   <p className="text-gray-600">
-                    {formData.provider === 'nbkc_payment' 
-                      ? 'Use either the payment link or scan the QR code below'
-                      : 'Click the button below to complete your PayPal payment'
-                    }
+                    Click the button below to complete your payment
                   </p>
                 </div>
 
@@ -286,83 +415,46 @@ const DonationForm = ({ onDonationAdded }) => {
                 <div className="p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border-2 border-blue-200">
                   <h4 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
                     <ExternalLink className="w-5 h-5" />
-                    {formData.provider === 'nbkc_payment' ? 'Option 1: Payment Link' : 'PayPal Payment'}
+                    {formData.provider === 'nbkc_payment' ? 'NBKC Bank Payment' : 'PayPal Payment'}
                   </h4>
                   <p className="text-blue-800 mb-4">
                     {formData.provider === 'nbkc_payment' 
-                      ? 'Click the button below to open the NBKC payment portal:'
+                      ? 'Click the button below to complete your payment through NBKC Bank:'
                       : 'Click the button below to complete your payment via PayPal:'
                     }
                   </p>
                   <Button
-                    onClick={() => window.open(
-                      formData.provider === 'nbkc_payment' ? NBKC_PAYMENT_LINK : PAYPAL_PAYMENT_LINK, 
-                      '_blank'
+                    onClick={() => handlePaymentRedirect(
+                      formData.provider === 'nbkc_payment' ? NBKC_PAYMENT_LINK : PAYPAL_PAYMENT_LINK
                     )}
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     {formData.provider === 'nbkc_payment' 
-                      ? 'Open NBKC Payment Portal' 
+                      ? 'Pay with NBKC Bank' 
                       : 'Pay with PayPal'
                     }
                   </Button>
                 </div>
 
-                {/* QR Code Option - Only for NBKC */}
-                {formData.provider === 'nbkc_payment' && (
-                  <div className="p-6 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border-2 border-green-200">
-                    <h4 className="font-semibold text-green-900 mb-3 flex items-center gap-2">
-                      <QrCode className="w-5 h-5" />
-                      Option 2: QR Code
-                    </h4>
-                    <p className="text-green-800 mb-4">Scan this QR code with your mobile device:</p>
-                    <div className="flex justify-center">
-                      <div className="p-4 bg-white rounded-lg border-2 border-green-300">
-                        <img 
-                          src={NBKC_QR_CODE} 
-                          alt="NBKC Payment QR Code" 
-                          className="w-48 h-48 mx-auto"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                )}
-
                 {/* Instructions */}
                 <div className="p-4 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
-                  <h4 className="font-semibold text-yellow-900 mb-2">Instructions:</h4>
+                  <h4 className="font-semibold text-yellow-900 mb-2">What happens next:</h4>
                   <ol className="list-decimal list-inside text-yellow-800 space-y-1">
-                    {formData.provider === 'nbkc_payment' ? (
-                      <>
-                        <li>Use either the payment link or QR code above</li>
-                        <li>Complete your ${formData.amount} donation through NBKC</li>
-                        <li>Return here and click "I've Completed Payment" below</li>
-                      </>
-                    ) : (
-                      <>
-                        <li>Click the PayPal button above</li>
-                        <li>Complete your ${formData.amount} donation through PayPal</li>
-                        <li>Return here and click "I've Completed Payment" below</li>
-                      </>
-                    )}
+                    <li>Click the payment button above</li>
+                    <li>Complete your ${formData.amount} donation on the secure payment page</li>
+                    <li>You'll automatically receive a confirmation and receipt</li>
                   </ol>
                 </div>
 
-                {/* Action Buttons */}
-                <div className="flex gap-4">
+                {/* Back Button */}
+                <div className="flex justify-center">
                   <Button
                     onClick={() => setShowPaymentInfo(false)}
                     variant="outline"
-                    className="flex-1"
+                    className="border-[#FE6F5E] text-[#FE6F5E] hover:bg-[#FE6F5E] hover:text-white"
                   >
                     ← Back to Form
-                  </Button>
-                  <Button
-                    onClick={() => handlePaymentRedirect(formData.provider === 'nbkc_payment' ? NBKC_PAYMENT_LINK : PAYPAL_PAYMENT_LINK)}
-                    className="flex-1 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] hover:from-[#FE4A36] hover:to-[#FE6F5E] text-white"
-                  >
-                    I've Completed Payment ✓
                   </Button>
                 </div>
               </div>
