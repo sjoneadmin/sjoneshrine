@@ -152,25 +152,13 @@ export const mockDonations = [
 // Payment provider information
 export const paymentProviders = [
   {
-    id: "remitly",
-    name: "Remitly",
-    description: "International money transfers",
+    id: "nbkc_payment",
+    name: "NBKC Bank Payment",
+    description: "Secure payment through NBKC Bank",
     supportedTypes: ["one-time"],
-    icon: "🌍"
-  },
-  {
-    id: "autobooks_invoice",
-    name: "Invoice (NBKC)",
-    description: "Professional invoicing through NBKC Bank",
-    supportedTypes: ["one-time"],
-    icon: "📄"
-  },
-  {
-    id: "cashapp",
-    name: "Cash App",
-    description: "Quick and easy mobile payments",
-    supportedTypes: ["one-time"],
-    icon: "💰"
+    icon: "🏦",
+    hasPaymentLink: true,
+    hasQRCode: true
   }
 ];
 
