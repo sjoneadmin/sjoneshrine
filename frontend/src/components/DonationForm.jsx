@@ -6,7 +6,7 @@ import { Textarea } from './ui/textarea';
 import { Label } from './ui/label';
 import { useToast } from '../hooks/use-toast';
 import { addDonation, paymentProviders } from '../data/mock';
-import { Heart, ExternalLink, QrCode, Building, DollarSign } from 'lucide-react';
+import { Heart, ExternalLink, QrCode, Building, DollarSign, CreditCard } from 'lucide-react';
 
 const DonationForm = ({ onDonationAdded }) => {
   const [formData, setFormData] = useState({
