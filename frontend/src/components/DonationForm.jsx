@@ -22,9 +22,7 @@ const DonationForm = ({ onDonationAdded }) => {
   const { toast } = useToast();
 
   const providerIcons = {
-    remitly: Globe,
-    autobooks_invoice: FileText,
-    cashapp: DollarSign
+    nbkc_payment: Building
   };
 
   const handleInputChange = (field, value) => {
