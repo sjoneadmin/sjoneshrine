@@ -146,7 +146,7 @@ This receipt serves as proof of your donation.
       <div className="max-w-2xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#FF69B4] to-[#FF1493] rounded-full mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#F47E7E] to-[#FF1493] rounded-full mb-4">
             <Heart className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-4xl font-black text-gray-900 mb-2">
@@ -160,16 +160,16 @@ This receipt serves as proof of your donation.
         </div>
 
         <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
-          <CardHeader className="bg-gradient-to-r from-[#FF69B4]/10 to-[#FF1493]/10 rounded-t-lg">
+          <CardHeader className="bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 rounded-t-lg">
             <CardTitle className="flex items-center gap-3 text-2xl font-bold text-gray-900">
               {showConfirmation ? (
                 <>
-                  <CheckCircle className="w-8 h-8 text-[#FF69B4]" />
+                  <CheckCircle className="w-8 h-8 text-[#F47E7E]" />
                   Donation Confirmation
                 </>
               ) : (
                 <>
-                  <Building className="w-8 h-8 text-[#FF69B4]" />
+                  <Building className="w-8 h-8 text-[#F47E7E]" />
                   {showPaymentInfo ? "Complete Your Donation" : "Donation Details"}
                 </>
               )}
@@ -190,7 +190,7 @@ This receipt serves as proof of your donation.
                 </div>
 
                 {/* Donation Summary */}
-                <div className="p-6 bg-gradient-to-r from-[#FF69B4]/10 to-[#FF1493]/10 border-2 border-[#FF69B4]/20 rounded-lg text-left">
+                <div className="p-6 bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 border-2 border-[#F47E7E]/20 rounded-lg text-left">
                   <h4 className="font-semibold text-[#FF1493] mb-4 text-center">Donation Summary</h4>
                   <div className="space-y-3 text-gray-700">
                     <div className="flex justify-between">
@@ -218,7 +218,7 @@ This receipt serves as proof of your donation.
                       <span className="font-mono text-sm">{donationDetails?.id}</span>
                     </div>
                     {donationDetails?.message && (
-                      <div className="mt-4 pt-4 border-t border-[#FF69B4]/20">
+                      <div className="mt-4 pt-4 border-t border-[#F47E7E]/20">
                         <div className="text-sm font-medium text-gray-600 mb-1">Your Message:</div>
                         <div className="italic">"{donationDetails.message}"</div>
                       </div>
@@ -241,14 +241,14 @@ This receipt serves as proof of your donation.
                   <Button
                     onClick={generateReceipt}
                     variant="outline"
-                    className="flex-1 border-[#FF69B4] text-[#FF69B4] hover:bg-[#FF69B4] hover:text-white"
+                    className="flex-1 border-[#F47E7E] text-[#F47E7E] hover:bg-[#F47E7E] hover:text-white"
                   >
                     <Download className="w-4 h-4 mr-2" />
                     Download Receipt
                   </Button>
                   <Button
                     onClick={handleStartOver}
-                    className="flex-1 bg-gradient-to-r from-[#FF69B4] to-[#FF1493] hover:from-[#FF1493] hover:to-[#FF69B4] text-white"
+                    className="flex-1 bg-gradient-to-r from-[#F47E7E] to-[#FF1493] hover:from-[#FF1493] hover:to-[#F47E7E] text-white"
                   >
                     <Heart className="w-4 h-4 mr-2" />
                     Make Another Donation
@@ -272,13 +272,13 @@ This receipt serves as proof of your donation.
                           key={provider.id}
                           className={`relative p-4 border-2 rounded-lg cursor-pointer transition-all duration-200 ${
                             formData.provider === provider.id
-                              ? 'border-[#FF69B4] bg-[#FF69B4]/5 shadow-md'
+                              ? 'border-[#F47E7E] bg-[#F47E7E]/5 shadow-md'
                               : 'border-gray-200 hover:border-gray-300 hover:shadow-sm'
                           }`}
                           onClick={() => handleInputChange('provider', provider.id)}
                         >
                           <div className="flex items-center gap-3">
-                            <Icon className={`w-6 h-6 ${formData.provider === provider.id ? 'text-[#FF69B4]' : 'text-gray-500'}`} />
+                            <Icon className={`w-6 h-6 ${formData.provider === provider.id ? 'text-[#F47E7E]' : 'text-gray-500'}`} />
                             <div className="flex-1">
                               <div className="font-semibold text-gray-900">{provider.name}</div>
                               <div className="text-sm text-gray-600">{provider.description}</div>
@@ -303,7 +303,7 @@ This receipt serves as proof of your donation.
                       placeholder="0.00"
                       value={formData.amount}
                       onChange={(e) => handleInputChange('amount', e.target.value)}
-                      className="pl-12 h-12 text-lg border-2 border-gray-200 focus:border-[#FF69B4] transition-colors"
+                      className="pl-12 h-12 text-lg border-2 border-gray-200 focus:border-[#F47E7E] transition-colors"
                       step="0.01"
                       min="0.01"
                       required
@@ -323,7 +323,7 @@ This receipt serves as proof of your donation.
                       placeholder="Enter your full name"
                       value={formData.donorName}
                       onChange={(e) => handleInputChange('donorName', e.target.value)}
-                      className="h-12 text-lg border-2 border-gray-200 focus:border-[#FF69B4] transition-colors"
+                      className="h-12 text-lg border-2 border-gray-200 focus:border-[#F47E7E] transition-colors"
                       required
                     />
                   </div>
@@ -338,7 +338,7 @@ This receipt serves as proof of your donation.
                       placeholder="your@email.com"
                       value={formData.donorEmail}
                       onChange={(e) => handleInputChange('donorEmail', e.target.value)}
-                      className="h-12 text-lg border-2 border-gray-200 focus:border-[#FF69B4] transition-colors"
+                      className="h-12 text-lg border-2 border-gray-200 focus:border-[#F47E7E] transition-colors"
                     />
                   </div>
                 </div>
@@ -353,14 +353,14 @@ This receipt serves as proof of your donation.
                     placeholder="Share why you're supporting our mission..."
                     value={formData.message}
                     onChange={(e) => handleInputChange('message', e.target.value)}
-                    className="min-h-[100px] text-lg border-2 border-gray-200 focus:border-[#FF69B4] transition-colors resize-none"
+                    className="min-h-[100px] text-lg border-2 border-gray-200 focus:border-[#F47E7E] transition-colors resize-none"
                     rows={4}
                   />
                 </div>
 
                 {/* Preview */}
                 {formData.amount && formData.donorName && formData.provider && (
-                  <div className="p-6 bg-gradient-to-r from-[#FF69B4]/10 to-[#FF1493]/10 border-2 border-[#FF69B4]/20 rounded-lg">
+                  <div className="p-6 bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 border-2 border-[#F47E7E]/20 rounded-lg">
                     <h3 className="font-semibold text-[#FF1493] mb-3 flex items-center gap-2">
                       <Building className="w-5 h-5" />
                       Donation Summary
@@ -379,7 +379,7 @@ This receipt serves as proof of your donation.
                         <span className="font-semibold">{selectedProvider?.name}</span>
                       </div>
                       {formData.message && (
-                        <div className="mt-3 pt-3 border-t border-[#FF69B4]/20">
+                        <div className="mt-3 pt-3 border-t border-[#F47E7E]/20">
                           <div className="italic text-sm">"{formData.message}"</div>
                         </div>
                       )}
@@ -391,7 +391,7 @@ This receipt serves as proof of your donation.
                 <Button
                   type="submit"
                   disabled={!formData.amount || !formData.donorName || !formData.provider}
-                  className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#FF69B4] to-[#FF1493] hover:from-[#FF1493] hover:to-[#FF69B4] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#F47E7E] to-[#FF1493] hover:from-[#FF1493] hover:to-[#F47E7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   <div className="flex items-center gap-3">
                     <Heart className="w-6 h-6" />
@@ -452,7 +452,7 @@ This receipt serves as proof of your donation.
                   <Button
                     onClick={() => setShowPaymentInfo(false)}
                     variant="outline"
-                    className="border-[#FF69B4] text-[#FF69B4] hover:bg-[#FF69B4] hover:text-white"
+                    className="border-[#F47E7E] text-[#F47E7E] hover:bg-[#F47E7E] hover:text-white"
                   >
                     ← Back to Form
                   </Button>
