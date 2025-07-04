@@ -10,7 +10,7 @@ const defaultGoal = {
   id: "goal-1",
   title: "Sjòne Shrine Inc.",
   subtitle: "Supporting Emerging Future Female Leaders",
-  description: "Sjòne Shrine Inc. supports emerging future female leaders for virtual athletic performance. These contributions help sustain resources for those seeking E-Sports coaching, recreational therapy, and gear.",
+  description: "The concept of the Edit Bay broadens our potential to provide digital access and creative tools to communities facing elevated virtual risk.",
   targetAmount: 50000,
   currentAmount: 2750,
   currency: "USD",
