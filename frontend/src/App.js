@@ -106,7 +106,7 @@ function App() {
 
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
         <Navigation />
         <Routes>
           <Route 
@@ -119,7 +119,7 @@ function App() {
           />
         </Routes>
         <Toaster />
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
