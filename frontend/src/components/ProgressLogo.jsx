@@ -43,8 +43,8 @@ const ProgressLogo = ({ size = 200, className = "" }) => {
         <defs>
           <linearGradient id={`leafGradient${index}`} x1="0%" y1="100%" x2="0%" y2="0%">
             <stop offset={`${100 - fillPercentage}%`} stopColor="transparent" />
-            <stop offset={`${100 - fillPercentage}%`} stopColor="#FE6F5E" />
-            <stop offset="100%" stopColor="#FE6F5E" />
+            <stop offset={`${100 - fillPercentage}%`} stopColor="#FF69B4" />
+            <stop offset="100%" stopColor="#FF69B4" />
           </linearGradient>
         </defs>
         
@@ -111,7 +111,7 @@ const ProgressLogo = ({ size = 200, className = "" }) => {
           cy="60"
           r="40"
           fill="none"
-          stroke="#FE6F5E"
+          stroke="#FF69B4"
           strokeWidth="2"
           opacity="0.2"
           filter="url(#glow)"
@@ -121,14 +121,14 @@ const ProgressLogo = ({ size = 200, className = "" }) => {
       
       {/* Progress Percentage */}
       <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] text-white px-6 py-3 rounded-full font-bold text-xl shadow-lg">
+        <div className="bg-gradient-to-r from-[#FF69B4] to-[#FE4A36] text-white px-6 py-3 rounded-full font-bold text-xl shadow-lg">
           {progress.toFixed(1)}%
         </div>
       </div>
       
       {/* Phase indicator */}
       <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
-        <div className="bg-white/90 backdrop-blur-sm text-[#FE6F5E] px-4 py-2 rounded-full font-bold text-sm border border-[#FE6F5E]/20">
+        <div className="bg-white/90 backdrop-blur-sm text-[#FF69B4] px-4 py-2 rounded-full font-bold text-sm border border-[#FF69B4]/20">
           Phase {filledLeaves > 0 ? ['I', 'II', 'III', 'IV', 'V'][filledLeaves - 1] : 'Starting'}
         </div>
       </div>
