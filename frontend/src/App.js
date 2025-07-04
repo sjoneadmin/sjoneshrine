@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route, Link, useLocation } from "react-router-dom";
+import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import DonationForm from "./components/DonationForm";
 import { Toaster } from "./components/ui/toaster";
