@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
@@ -6,6 +6,7 @@ import DonationForm from "./components/DonationForm";
 import { Toaster } from "./components/ui/toaster";
 import { Button } from "./components/ui/button";
 import { Home, Heart, Target, Menu, X } from 'lucide-react';
+import { initializeData, updateMissionStatement } from './utils/localStorage';
 
 const Navigation = () => {
   const location = useLocation();
