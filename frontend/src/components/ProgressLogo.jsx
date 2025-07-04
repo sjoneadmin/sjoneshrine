@@ -68,7 +68,7 @@ const ProgressLogo = ({ size = 200, className = "" }) => {
         <line
           x1="0" y1="15"
           x2="0" y2="-15"
-          stroke={isFilled || isPartial ? "#CCCCFF" : "#d1d5db"}
+          stroke={isFilled || isPartial ? "#F47E7E" : "#d1d5db"}
           strokeWidth="1"
           className="transition-colors duration-1000"
         />
