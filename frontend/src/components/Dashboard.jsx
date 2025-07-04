@@ -40,7 +40,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-[#F47E7E] via-[#CCCCFF] to-[#E8452E]">
+      <div className="relative overflow-hidden bg-gradient-to-r from-[#F47E7E] via-[#CCCCFF] to-[#CCCCFF]">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative px-6 py-16">
           <div className="max-w-7xl mx-auto">
