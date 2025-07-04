@@ -100,6 +100,12 @@ const Navigation = () => {
 function App() {
   const [refreshKey, setRefreshKey] = useState(0);
 
+  useEffect(() => {
+    // Initialize data and update mission statement
+    initializeData();
+    updateMissionStatement();
+  }, []);
+
   const handleDonationAdded = () => {
     // Force re-render of Dashboard when donation is added
     setRefreshKey(prev => prev + 1);
