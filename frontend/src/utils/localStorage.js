@@ -24,7 +24,7 @@ const defaultMilestones = [
     amount: 10000,
     phase: "I",
     title: "Research & Visioning",
-    description: "The concept of the Edit Bay broadens our potential to provide digital access and creative tools to communities facing elevated virtual risk.",
+    description: "Sjòne Shrine Inc. supports future female digital athletes—equipping them with the armament to rise, and the tools to stay.",
     reward: "Foundation research and community engagement",
     achieved: false,
     achievedDate: null,
