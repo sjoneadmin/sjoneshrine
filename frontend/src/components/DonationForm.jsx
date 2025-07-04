@@ -146,7 +146,7 @@ This receipt serves as proof of your donation.
       <div className="max-w-2xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#F47E7E] to-[#FF1493] rounded-full mb-4">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] rounded-full mb-4">
             <Heart className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-4xl font-black text-gray-900 mb-2">
@@ -160,7 +160,7 @@ This receipt serves as proof of your donation.
         </div>
 
         <Card className="shadow-2xl border-0 bg-white/95 backdrop-blur-sm">
-          <CardHeader className="bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 rounded-t-lg">
+          <CardHeader className="bg-gradient-to-r from-[#F47E7E]/10 to-[#CCCCFF]/10 rounded-t-lg">
             <CardTitle className="flex items-center gap-3 text-2xl font-bold text-gray-900">
               {showConfirmation ? (
                 <>
@@ -190,8 +190,8 @@ This receipt serves as proof of your donation.
                 </div>
 
                 {/* Donation Summary */}
-                <div className="p-6 bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 border-2 border-[#F47E7E]/20 rounded-lg text-left">
-                  <h4 className="font-semibold text-[#FF1493] mb-4 text-center">Donation Summary</h4>
+                <div className="p-6 bg-gradient-to-r from-[#F47E7E]/10 to-[#CCCCFF]/10 border-2 border-[#F47E7E]/20 rounded-lg text-left">
+                  <h4 className="font-semibold text-[#CCCCFF] mb-4 text-center">Donation Summary</h4>
                   <div className="space-y-3 text-gray-700">
                     <div className="flex justify-between">
                       <span>Amount:</span>
@@ -248,7 +248,7 @@ This receipt serves as proof of your donation.
                   </Button>
                   <Button
                     onClick={handleStartOver}
-                    className="flex-1 bg-gradient-to-r from-[#F47E7E] to-[#FF1493] hover:from-[#FF1493] hover:to-[#F47E7E] text-white"
+                    className="flex-1 bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] hover:from-[#CCCCFF] hover:to-[#F47E7E] text-white"
                   >
                     <Heart className="w-4 h-4 mr-2" />
                     Make Another Donation
@@ -360,8 +360,8 @@ This receipt serves as proof of your donation.
 
                 {/* Preview */}
                 {formData.amount && formData.donorName && formData.provider && (
-                  <div className="p-6 bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 border-2 border-[#F47E7E]/20 rounded-lg">
-                    <h3 className="font-semibold text-[#FF1493] mb-3 flex items-center gap-2">
+                  <div className="p-6 bg-gradient-to-r from-[#F47E7E]/10 to-[#CCCCFF]/10 border-2 border-[#F47E7E]/20 rounded-lg">
+                    <h3 className="font-semibold text-[#CCCCFF] mb-3 flex items-center gap-2">
                       <Building className="w-5 h-5" />
                       Donation Summary
                     </h3>
@@ -391,7 +391,7 @@ This receipt serves as proof of your donation.
                 <Button
                   type="submit"
                   disabled={!formData.amount || !formData.donorName || !formData.provider}
-                  className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#F47E7E] to-[#FF1493] hover:from-[#FF1493] hover:to-[#F47E7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  className="w-full h-16 text-xl font-bold bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] hover:from-[#CCCCFF] hover:to-[#F47E7E] text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 >
                   <div className="flex items-center gap-3">
                     <Heart className="w-6 h-6" />

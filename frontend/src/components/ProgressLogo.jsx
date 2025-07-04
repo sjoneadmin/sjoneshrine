@@ -68,7 +68,7 @@ const ProgressLogo = ({ size = 200, className = "" }) => {
         <line
           x1="0" y1="15"
           x2="0" y2="-15"
-          stroke={isFilled || isPartial ? "#FF1493" : "#d1d5db"}
+          stroke={isFilled || isPartial ? "#CCCCFF" : "#d1d5db"}
           strokeWidth="1"
           className="transition-colors duration-1000"
         />
@@ -121,7 +121,7 @@ const ProgressLogo = ({ size = 200, className = "" }) => {
       
       {/* Progress Percentage */}
       <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-        <div className="bg-gradient-to-r from-[#F47E7E] to-[#FF1493] text-white px-6 py-3 rounded-full font-bold text-xl shadow-lg">
+        <div className="bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] text-white px-6 py-3 rounded-full font-bold text-xl shadow-lg">
           {progress.toFixed(1)}%
         </div>
       </div>

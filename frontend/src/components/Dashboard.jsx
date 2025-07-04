@@ -40,7 +40,7 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-red-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-r from-[#F47E7E] via-[#FF1493] to-[#E8452E]">
+      <div className="relative overflow-hidden bg-gradient-to-r from-[#F47E7E] via-[#CCCCFF] to-[#E8452E]">
         <div className="absolute inset-0 bg-black opacity-10"></div>
         <div className="relative px-6 py-16">
           <div className="max-w-7xl mx-auto">
@@ -99,7 +99,7 @@ const Dashboard = () => {
             <Card className="bg-white/90 backdrop-blur-sm shadow-xl border-0 hover:shadow-2xl transition-all duration-300 hover:scale-105">
               <CardContent className="p-6">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-gradient-to-r from-[#F47E7E] to-[#FF1493] rounded-xl">
+                  <div className="p-3 bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] rounded-xl">
                     <Target className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -178,7 +178,7 @@ const Dashboard = () => {
                     <div key={milestone.id} className="relative">
                       <div className={`p-6 rounded-xl border-2 transition-all duration-300 ${
                         milestone.achieved 
-                          ? 'bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10 border-[#F47E7E] shadow-lg' 
+                          ? 'bg-gradient-to-r from-[#F47E7E]/10 to-[#CCCCFF]/10 border-[#F47E7E] shadow-lg' 
                           : milestone.amount <= goal.currentAmount
                           ? 'bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-400 shadow-lg animate-pulse'
                           : 'bg-gray-50 border-gray-200 hover:border-gray-300'
@@ -186,7 +186,7 @@ const Dashboard = () => {
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-3">
-                              <Badge variant={milestone.achieved ? "default" : "secondary"} className="text-lg px-4 py-2 bg-gradient-to-r from-[#F47E7E] to-[#FF1493] text-white">
+                              <Badge variant={milestone.achieved ? "default" : "secondary"} className="text-lg px-4 py-2 bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] text-white">
                                 Phase {milestone.phase}
                               </Badge>
                               <Badge variant={milestone.achieved ? "default" : "secondary"} className="text-base px-3 py-1">
@@ -250,7 +250,7 @@ const Dashboard = () => {
                       <div className="flex justify-between items-start mb-2">
                         <div className="font-semibold text-gray-900">{donation.donorName}</div>
                         <div className="flex flex-col items-end gap-1">
-                          <Badge className="bg-gradient-to-r from-[#F47E7E] to-[#FF1493] text-white">
+                          <Badge className="bg-gradient-to-r from-[#F47E7E] to-[#CCCCFF] text-white">
                             ${donation.amount}
                           </Badge>
                           <span className="text-xs text-gray-500 capitalize">
@@ -275,9 +275,9 @@ const Dashboard = () => {
 
               {/* Next Milestone */}
               {nextMilestone && (
-                <Card className="mt-6 shadow-xl border-0 bg-gradient-to-r from-[#F47E7E]/10 to-[#FF1493]/10">
+                <Card className="mt-6 shadow-xl border-0 bg-gradient-to-r from-[#F47E7E]/10 to-[#CCCCFF]/10">
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-3 text-lg font-bold text-[#FF1493]">
+                    <CardTitle className="flex items-center gap-3 text-lg font-bold text-[#CCCCFF]">
                       <Target className="w-6 h-6" />
                       Next Phase
                     </CardTitle>
@@ -286,17 +286,17 @@ const Dashboard = () => {
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 mb-2">
                         <Badge className="bg-[#F47E7E] text-white">Phase {nextMilestone.phase}</Badge>
-                        <span className="text-2xl font-bold text-[#FF1493]">
+                        <span className="text-2xl font-bold text-[#CCCCFF]">
                           ${nextMilestone.amount.toLocaleString()}
                         </span>
                       </div>
-                      <div className="text-[#FF1493] font-medium">{nextMilestone.title}</div>
+                      <div className="text-[#CCCCFF] font-medium">{nextMilestone.title}</div>
                       <div className="text-sm text-gray-700 mb-3">{nextMilestone.description}</div>
                       <Progress 
                         value={(goal.currentAmount / nextMilestone.amount) * 100} 
                         className="h-3"
                       />
-                      <div className="text-sm text-[#FF1493] font-medium">
+                      <div className="text-sm text-[#CCCCFF] font-medium">
                         ${(nextMilestone.amount - goal.currentAmount).toLocaleString()} remaining
                       </div>
                     </div>
