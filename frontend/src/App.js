@@ -107,6 +107,8 @@ function App() {
     updateMissionStatement();
     // Clean up any test donations and ensure only verified donations are shown
     cleanupTestDonations();
+    // Force update milestone descriptions to latest versions
+    updateMilestoneDescriptions();
   }, []);
 
   const handleDonationAdded = () => {
