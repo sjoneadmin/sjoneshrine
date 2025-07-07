@@ -133,6 +133,9 @@ export const cleanupTestDonations = () => {
   // Reset goal to default amounts (verified total)
   localStorage.setItem(STORAGE_KEYS.GOAL, JSON.stringify(defaultGoal));
   
+  // Force update milestones to ensure latest descriptions are used
+  localStorage.setItem(STORAGE_KEYS.MILESTONES, JSON.stringify(defaultMilestones));
+  
   // Update milestone achievements based on verified amounts
   updateMilestoneAchievements();
 };
