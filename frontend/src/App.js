@@ -104,6 +104,8 @@ function App() {
     // Initialize data and update mission statement
     initializeData();
     updateMissionStatement();
+    // Clean up any test donations and ensure only verified donations are shown
+    cleanupTestDonations();
   }, []);
 
   const handleDonationAdded = () => {
