@@ -79,11 +79,44 @@ const defaultMilestones = [
 const defaultDonations = [
   {
     id: "donation-1",
-    amount: 500,
-    donorName: "Anonymous",
-    donorEmail: "donor1@example.com",
-    message: "Excited to support the mission!",
+    amount: 200,
+    donorName: "Sarah M.",
+    donorEmail: "sarah.m@email.com",
+    message: "Supporting your mission for future female leaders!",
     date: "2025-01-15",
+    type: "one-time",
+    provider: "paypal",
+    status: "completed"
+  },
+  {
+    id: "donation-2",
+    amount: 150,
+    donorName: "Anonymous",
+    donorEmail: "",
+    message: "Excited to contribute to this important work.",
+    date: "2025-02-03",
+    type: "one-time",
+    provider: "nbkc_payment",
+    status: "completed"
+  },
+  {
+    id: "donation-3",
+    amount: 100,
+    donorName: "Maria Rodriguez",
+    donorEmail: "m.rodriguez@email.com",
+    message: "",
+    date: "2025-02-18",
+    type: "one-time",
+    provider: "paypal",
+    status: "completed"
+  },
+  {
+    id: "donation-4",
+    amount: 50,
+    donorName: "Tech Sisters Collective",
+    donorEmail: "contact@techsisters.org",
+    message: "From our community with love and support for your ceremonial programs.",
+    date: "2025-03-05",
     type: "one-time",
     provider: "nbkc_payment",
     status: "completed"
