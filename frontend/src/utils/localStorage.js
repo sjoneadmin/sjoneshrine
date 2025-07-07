@@ -12,7 +12,7 @@ const defaultGoal = {
   subtitle: "Supporting Emerging Future Female Leaders",
   description: "Sjòne Shrine is a non- profit providing ceremonial, coded programs based on clinical, cyber, and self-hood focused disciplines.",
   targetAmount: 50000,
-  currentAmount: 2750,
+  currentAmount: 500,
   currency: "USD",
   createdAt: "2025-01-01",
   endDate: "2025-12-31"
