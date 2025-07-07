@@ -435,12 +435,16 @@ This receipt serves as proof of your donation.
 
                 {/* Instructions */}
                 <div className="p-4 bg-yellow-50 border-2 border-yellow-200 rounded-lg">
-                  <h4 className="font-semibold text-yellow-900 mb-2">What happens next:</h4>
+                  <h4 className="font-semibold text-yellow-900 mb-2">Important Payment Instructions:</h4>
                   <ol className="list-decimal list-inside text-yellow-800 space-y-1">
-                    <li>Click the payment button above</li>
-                    <li>Complete your ${formData.amount} donation on the secure payment page</li>
-                    <li>You'll automatically receive a confirmation and receipt</li>
+                    <li>Click the payment button above to complete your ${formData.amount} donation</li>
+                    <li>Complete the payment on the secure external payment page</li>
+                    <li>Your donation will be verified and added to our tracker once payment is confirmed</li>
+                    <li>Only verified, completed payments are reflected in our progress tracker</li>
                   </ol>
+                  <p className="mt-2 text-sm text-yellow-700 font-medium">
+                    Thank you for your support! Your contribution helps fund our ceremonial, coded programs.
+                  </p>
                 </div>
 
                 {/* Back Button */}
