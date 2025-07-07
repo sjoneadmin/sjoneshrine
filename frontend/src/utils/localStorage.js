@@ -137,6 +137,53 @@ export const cleanupTestDonations = () => {
   updateMilestoneAchievements();
 };
 
+// Admin function to manually add verified donations
+export const addVerifiedDonation = (donationData) => {
+  const donation = {
+    id: `verified-donation-${Date.now()}`,
+    amount: parseFloat(donationData.amount),
+    donorName: donationData.donorName || "Anonymous",
+    donorEmail: donationData.donorEmail || "",
+    message: donationData.message || "",
+    date: donationData.date || new Date().toISOString().split('T')[0],
+    type: "one-time",
+    provider: donationData.provider || "manual_verification",
+    status: "completed"
+  };
+  
+  const donations = getDonations();
+  donations.unshift(donation);
+  localStorage.setItem(STORAGE_KEYS.DONATIONS, JSON.stringify(donations));
+  
+  // Update goal current amount
+  const goal = getGoal();
+  goal.currentAmount += donation.amount;
+  updateGoal(goal);
+  
+  // Update milestone achievements
+  updateMilestoneAchievements();
+  
+  console.log('✅ Verified donation added:', donation);
+  return donation;
+};
+
+// Admin function to view current total for verification
+export const getVerificationSummary = () => {
+  const goal = getGoal();
+  const donations = getDonations();
+  
+  const summary = {
+    totalRaised: goal.currentAmount,
+    totalDonations: donations.length,
+    goal: goal.targetAmount,
+    percentage: ((goal.currentAmount / goal.targetAmount) * 100).toFixed(2),
+    recentDonations: donations.slice(0, 5)
+  };
+  
+  console.log('📊 Current Summary:', summary);
+  return summary;
+};
+
 // Goal functions
 export const getGoal = () => {
   const goal = localStorage.getItem(STORAGE_KEYS.GOAL);
