@@ -65,26 +65,22 @@ const DonationForm = ({ onDonationAdded }) => {
   };
 
   const handlePaymentRedirect = (paymentUrl) => {
-    // Open payment page in new tab
+    // Store donation details for potential future verification
+    const donationIntent = {
+      ...formData,
+      amount: parseFloat(formData.amount),
+      timestamp: new Date().toISOString(),
+      status: "pending_payment"
+    };
+    
+    // Store pending donation in session storage (not localStorage)
+    sessionStorage.setItem('pending_donation', JSON.stringify(donationIntent));
+    
+    // Open payment page
     window.open(paymentUrl, '_blank');
     
-    // Show confirmation page after a brief delay
-    setTimeout(() => {
-      const donation = {
-        ...formData,
-        amount: parseFloat(formData.amount)
-      };
-      
-      const newDonation = addDonation(donation);
-      setDonationDetails(newDonation);
-      setShowConfirmation(true);
-      setShowPaymentInfo(false);
-      
-      // Notify parent component to refresh
-      if (onDonationAdded) {
-        onDonationAdded(newDonation);
-      }
-    }, 1000);
+    // Show instructions instead of automatically adding donation
+    setShowPaymentInfo(true);
   };
 
   const handleStartOver = () => {
