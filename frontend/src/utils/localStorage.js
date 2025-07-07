@@ -24,7 +24,7 @@ const defaultMilestones = [
     amount: 10000,
     phase: "I",
     title: "Research & Visioning",
-    description: "Sjòne Shrine Inc. supports future female digital athletes—equipping them with the armament to rise, and the tools to stay.",
+    description: "Sjòne Shrine is a non- profit providing ceremonial, coded programs based on clinical, cyber, and self-hood focused disciplines.",
     reward: "Foundation research and community engagement",
     achieved: false,
     achievedDate: null,
