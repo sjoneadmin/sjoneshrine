@@ -10,7 +10,7 @@ const defaultGoal = {
   id: "goal-1",
   title: "Sjòne Shrine Inc.",
   subtitle: "Supporting Emerging Future Female Leaders",
-  description: "Sjòne Shrine Inc. supports future female digital athletes—equipping them with the armament to rise, and the tools to stay.",
+  description: "Sjòne Shrine is a non- profit providing ceremonial, coded programs based on clinical, cyber, and self-hood focused disciplines.",
   targetAmount: 50000,
   currentAmount: 2750,
   currency: "USD",
