@@ -129,6 +129,7 @@ function App() {
           />
         </Routes>
         <Toaster />
+        <AdminPanel onDonationAdded={handleDonationAdded} />
       </HashRouter>
     </div>
   );
