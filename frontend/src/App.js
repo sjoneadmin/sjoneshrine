@@ -3,6 +3,7 @@ import "./App.css";
 import { HashRouter, Routes, Route, Link, useLocation } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import DonationForm from "./components/DonationForm";
+import AdminPanel from "./components/AdminPanel";
 import { Toaster } from "./components/ui/toaster";
 import { Button } from "./components/ui/button";
 import { Home, Heart, Target, Menu, X } from 'lucide-react';
