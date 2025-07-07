@@ -113,8 +113,8 @@ const defaultDonations = [
   {
     id: "donation-4",
     amount: 50,
-    donorName: "Tech Sisters Collective",
-    donorEmail: "contact@techsisters.org",
+    donorName: "Ema Zine",
+    donorEmail: "contact@emazine.org",
     message: "From our community with love and support for your ceremonial programs.",
     date: "2025-03-05",
     type: "one-time",
