@@ -125,6 +125,13 @@ export const updateMissionStatement = () => {
   }
 };
 
+// Force update milestone descriptions to latest versions
+export const updateMilestoneDescriptions = () => {
+  // Force update all milestone descriptions to match default data
+  localStorage.setItem(STORAGE_KEYS.MILESTONES, JSON.stringify(defaultMilestones));
+  console.log('✅ Milestone descriptions updated to latest versions');
+};
+
 // Clean up test donations and reset to verified donations only
 export const cleanupTestDonations = () => {
   // Reset donations to only verified default donations
