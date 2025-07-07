@@ -191,6 +191,18 @@ export const updateMissionStatement = () => {
   }
 };
 
+// Clean up test donations and reset to verified donations only
+export const cleanupTestDonations = () => {
+  // Reset donations to only verified default donations
+  localStorage.setItem(STORAGE_KEYS.DONATIONS, JSON.stringify(defaultDonations));
+  
+  // Reset goal to default amounts (verified total)
+  localStorage.setItem(STORAGE_KEYS.GOAL, JSON.stringify(defaultGoal));
+  
+  // Update milestone achievements based on verified amounts
+  updateMilestoneAchievements();
+};
+
 // Goal functions
 export const getGoal = () => {
   const goal = localStorage.getItem(STORAGE_KEYS.GOAL);
