@@ -6,7 +6,7 @@ import DonationForm from "./components/DonationForm";
 import { Toaster } from "./components/ui/toaster";
 import { Button } from "./components/ui/button";
 import { Home, Heart, Target, Menu, X } from 'lucide-react';
-import { initializeData, updateMissionStatement } from './utils/localStorage';
+import { initializeData, updateMissionStatement, cleanupTestDonations } from './utils/localStorage';
 
 const Navigation = () => {
   const location = useLocation();
