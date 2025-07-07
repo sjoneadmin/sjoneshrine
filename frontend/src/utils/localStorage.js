@@ -57,7 +57,7 @@ const defaultMilestones = [
     amount: 37500,
     phase: "IV",
     title: "Infrastructure & Equipment",
-    description: "Development and installation of core infrastructure and specialized equipment for E-Sports coaching and recreational therapy programs.",
+    description: "Development and installation of core infrastructure and specialized equipment for in-house administration and program support.",
     reward: "Equipment procurement and infrastructure setup",
     achieved: false,
     achievedDate: null,
