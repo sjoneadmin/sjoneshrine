@@ -68,7 +68,7 @@ const defaultMilestones = [
     amount: 50000,
     phase: "V",
     title: "Buildout & Programming",
-    description: "Complete facility buildout and launch of comprehensive programming for E-Sports coaching, recreational therapy, and community engagement.",
+    description: "Development and installation of core infrastructure, encompassing administrative systems, communication platforms, program development environments, and digital frameworks, to ensure efficient in-house administration and effective delivery of integrated clinical, cyber, and self-empowerment fields.",
     reward: "Full program launch and community access",
     achieved: false,
     achievedDate: null,
