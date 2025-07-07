@@ -9,7 +9,7 @@ const STORAGE_KEYS = {
 const defaultGoal = {
   id: "goal-1",
   title: "Sjòne Shrine Inc.",
-  subtitle: "Supporting Emerging Future Female Leaders",
+  subtitle: "Supporting Future Leaders with armament to rise, and tools to stay.",
   description: "Sjòne Shrine is a non- profit providing ceremonial, coded programs based on clinical, cyber, and self-hood focused disciplines.",
   targetAmount: 50000,
   currentAmount: 500,
