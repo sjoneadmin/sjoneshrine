@@ -138,24 +138,13 @@ export const initializeData = () => {
 
 // Force update mission statement - call this when content needs to be updated
 export const updateMissionStatement = () => {
-  // Get current goal data
-  const currentGoal = getGoal();
+  // Force complete reset of goal data with latest default
+  localStorage.setItem(STORAGE_KEYS.GOAL, JSON.stringify(defaultGoal));
   
-  // Update with new mission statement
-  const updatedGoal = {
-    ...currentGoal,
-    description: defaultGoal.description
-  };
+  // Force complete reset of milestone data with latest defaults
+  localStorage.setItem(STORAGE_KEYS.MILESTONES, JSON.stringify(defaultMilestones));
   
-  // Save updated goal
-  updateGoal(updatedGoal);
-  
-  // Update milestone 1 description as well
-  const milestones = getMilestones();
-  if (milestones[0]) {
-    milestones[0].description = defaultMilestones[0].description;
-    updateMilestones(milestones);
-  }
+  console.log('✅ Mission statement and milestones force updated');
 };
 
 // Force update milestone descriptions to latest versions
