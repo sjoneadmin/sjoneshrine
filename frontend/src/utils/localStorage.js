@@ -2,8 +2,12 @@
 const STORAGE_KEYS = {
   DONATIONS: 'sjone_shrine_donations',
   GOAL: 'sjone_shrine_goal',
-  MILESTONES: 'sjone_shrine_milestones'
+  MILESTONES: 'sjone_shrine_milestones',
+  VERSION: 'sjone_shrine_version'
 };
+
+// Content version - increment this when mission statement or milestones change
+const CONTENT_VERSION = '1.6';
 
 // Default data
 const defaultGoal = {
