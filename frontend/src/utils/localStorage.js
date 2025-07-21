@@ -129,14 +129,30 @@ const defaultDonations = [
 
 // Initialize data if not exists
 export const initializeData = () => {
-  if (!localStorage.getItem(STORAGE_KEYS.GOAL)) {
+  // Check if content needs updating based on version
+  const currentVersion = localStorage.getItem(STORAGE_KEYS.VERSION);
+  
+  if (currentVersion !== CONTENT_VERSION) {
+    console.log(`🔄 Content version mismatch (${currentVersion} vs ${CONTENT_VERSION}). Force updating all data...`);
+    
+    // Force update all data to latest versions
     localStorage.setItem(STORAGE_KEYS.GOAL, JSON.stringify(defaultGoal));
-  }
-  if (!localStorage.getItem(STORAGE_KEYS.MILESTONES)) {
     localStorage.setItem(STORAGE_KEYS.MILESTONES, JSON.stringify(defaultMilestones));
-  }
-  if (!localStorage.getItem(STORAGE_KEYS.DONATIONS)) {
     localStorage.setItem(STORAGE_KEYS.DONATIONS, JSON.stringify(defaultDonations));
+    localStorage.setItem(STORAGE_KEYS.VERSION, CONTENT_VERSION);
+    
+    console.log('✅ All data force updated to version', CONTENT_VERSION);
+  } else {
+    // Normal initialization for new users only
+    if (!localStorage.getItem(STORAGE_KEYS.GOAL)) {
+      localStorage.setItem(STORAGE_KEYS.GOAL, JSON.stringify(defaultGoal));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.MILESTONES)) {
+      localStorage.setItem(STORAGE_KEYS.MILESTONES, JSON.stringify(defaultMilestones));
+    }
+    if (!localStorage.getItem(STORAGE_KEYS.DONATIONS)) {
+      localStorage.setItem(STORAGE_KEYS.DONATIONS, JSON.stringify(defaultDonations));
+    }
   }
 };
 
