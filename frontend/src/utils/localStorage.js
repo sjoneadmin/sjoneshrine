@@ -25,7 +25,7 @@ const defaultGoal = {
 const defaultMilestones = [
   {
     id: "milestone-1",
-    amount: 10000,
+    amount: 20000,
     phase: "I",
     title: "Research & Visioning",
     description: "Sjòne Shrine is a non- profit, providing ceremonial coded programs based on clinical, cyber, and self-hood focused disciplines.",
@@ -36,7 +36,7 @@ const defaultMilestones = [
   },
   {
     id: "milestone-2", 
-    amount: 12500,
+    amount: 25000,
     phase: "II",
     title: "Architectural Planning",
     description: "Architectural planning is in progress consulting with licensed professionals and project advisors.",
@@ -47,7 +47,7 @@ const defaultMilestones = [
   },
   {
     id: "milestone-3",
-    amount: 25000,
+    amount: 50000,
     phase: "III",
     title: "Ground Breaking",
     description: "This milestone marks a turning point in our development process, enabling us to move forward with infrastructure development.",
@@ -58,7 +58,7 @@ const defaultMilestones = [
   },
   {
     id: "milestone-4",
-    amount: 37500,
+    amount: 75000,
     phase: "IV",
     title: "Infrastructure & Equipment",
     description: "Development and installation of core infrastructure and specialized equipment for in-house administration and program support.",
@@ -69,7 +69,7 @@ const defaultMilestones = [
   },
   {
     id: "milestone-5",
-    amount: 50000,
+    amount: 100000,
     phase: "V",
     title: "Buildout & Programming",
     description: "Development and installation of core infrastructure, encompassing administrative systems, communication platforms, program development environments, and digital frameworks, to ensure efficient in-house administration and effective delivery of integrated clinical, cyber, and self-empowerment fields.",
