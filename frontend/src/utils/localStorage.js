@@ -15,7 +15,7 @@ const defaultGoal = {
   title: "Sjòne Shrine Inc.",
   subtitle: "Supporting Future Leaders with armament to rise, and tools to stay.",
   description: "Sjòne Shrine is a non- profit, providing ceremonial coded programs based on clinical, cyber, and self-hood focused disciplines.",
-  targetAmount: 50000,
+  targetAmount: 100000,
   currentAmount: 500,
   currency: "USD",
   createdAt: "2025-01-01",
