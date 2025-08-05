@@ -7,7 +7,7 @@ const STORAGE_KEYS = {
 };
 
 // Content version - increment this when mission statement or milestones change
-const CONTENT_VERSION = '1.6';
+const CONTENT_VERSION = '1.7';
 
 // Default data
 const defaultGoal = {
