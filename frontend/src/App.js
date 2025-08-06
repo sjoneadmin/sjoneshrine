@@ -27,8 +27,17 @@ const Navigation = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Link to="/" className="flex items-center gap-3 hover:scale-105 transition-transform">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#FE6F5E] to-[#FE4A36] rounded-lg flex items-center justify-center">
-                <Target className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center p-1">
+                <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M50 15 C65 20, 80 40, 75 60 C70 80, 55 85, 50 85 C45 85, 30 80, 25 60 C20 40, 35 20, 50 15 Z" 
+                        fill="none" stroke="#FFF" stroke-width="2"/>
+                  <path d="M50 15 C60 25, 70 45, 65 65" fill="none" stroke="#FFF" stroke-width="1.5" opacity="0.8"/>
+                  <path d="M50 15 C40 25, 30 45, 35 65" fill="none" stroke="#FFF" stroke-width="1.5" opacity="0.8"/>
+                  <circle cx="50" cy="45" r="18" fill="#F47E7E" opacity="1"/>
+                  <path d="M50 45 m-12 0 a12 12 0 1 1 24 0 a8 8 0 1 1 -16 0 a4 4 0 1 1 8 0 a2 2 0 1 1 -4 0" 
+                        fill="#000" opacity="0.9"/>
+                  <polygon points="58,65 65,70 58,75" fill="#CCCCFF" opacity="1"/>
+                </svg>
               </div>
               <span className="text-xl font-black text-gray-900">Sjòne Shrine</span>
             </Link>
