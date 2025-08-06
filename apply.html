@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply - Sjòne Shrine Program Application</title>
+    <meta name="description" content="Apply for the Sjòne Shrine specialized program for young women ages 18-25 entering adulthood without guidance or support.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coral: '#F47E7E',
+                        lavender: '#CCCCFF',
+                        'coral-dark': '#E06B6B',
+                        'lavender-dark': '#B8B8FF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #F47E7E 0%, #CCCCFF 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #F47E7E 0%, #CCCCFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F47E7E' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm0 0c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-lg border-b z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L8 8L12 12L16 8L12 2Z" fill="white"/>
+                                <path d="M2 12L8 8L12 12L8 16L2 12Z" fill="white"/>
+                                <path d="M22 12L16 8L12 12L16 16L22 12Z" fill="white"/>
+                                <path d="M12 22L8 16L12 12L16 16L12 22Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-black text-gray-900">Sjòne Shrine</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-coral transition-colors">Home</a>
+                    <a href="/#about" class="text-gray-600 hover:text-coral transition-colors">About</a>
+                    <a href="/#programs" class="text-gray-600 hover:text-coral transition-colors">Programs</a>
+                    <a href="/donations" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">Support Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-black mb-6">Your Story Begins Here</h1>
+            <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                Welcome to the Sjòne Shrine application experience — designed like a story, just for you.
+            </p>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto">
+                <p class="text-lg">
+                    <strong>Meet your guide:</strong> Cosimia<br>
+                    <strong>Your journey:</strong> Four years, designed like chapters<br>
+                    <strong>Your role:</strong> Main character of your own story
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="py-16 bg-gray-50 leaf-pattern">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                <!-- Introduction to Cosimia -->
+                <div class="text-center mb-12">
+                    <div class="w-24 h-24 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gradient mb-4">Meet Cosimia</h2>
+                    <p class="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                        Hi there! I'm Cosimia, and I'll be your guide through this application journey. Think of this as the beginning of your story — we're going to get to know the real you, chapter by chapter.
+                    </p>
+                </div>
+
+                <form id="applicationForm" class="space-y-12">
+                    <!-- Profile Photo and Bio -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <h3 class="text-2xl font-bold text-gradient mb-6">Before We Begin...</h3>
+                        
+                        <!-- Profile Photo Upload -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-bold text-gray-700 mb-3">
+                                Profile Photo (Optional)
+                            </label>
+                            <div class="flex items-center justify-center w-full">
+                                <label for="profilePhoto" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                        </svg>
+                                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> your photo</p>
+                                        <p class="text-xs text-gray-500">PNG, JPG, or GIF (MAX. 5MB)</p>
+                                    </div>
+                                    <input id="profilePhoto" type="file" name="profilePhoto" accept="image/*" class="hidden" />
+                                </label>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-2">This helps us put a face to your story — completely optional, but we'd love to see you!</p>
+                        </div>
+
+                        <!-- Bio Section -->
+                        <div class="mb-8">
+                            <label class="block text-sm font-bold text-gray-700 mb-3" for="personalBio">
+                                Tell Us About Yourself (Optional)
+                            </label>
+                            <textarea id="personalBio" name="personalBio" rows="6" 
+                                      placeholder="This is your space to share anything about yourself that you'd like us to know. Your interests, dreams, what makes you unique, your story so far — whatever feels right to share. No limits, just you."
+                                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                            <p class="text-xs text-gray-600 mt-2">Unlimited characters — this is your canvas to paint your personality.</p>
+                        </div>
+                    </div>
+
+                    <!-- Act 1 | Volume 1 | Chapter 1 | Character Development -->
+                    <div class="border-b border-gray-200 pb-8">
+                        <div class="text-center mb-8">
+                            <h2 class="text-4xl font-black text-gradient mb-2">Act 1 | Volume 1 | Chapter 1</h2>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Character Development</h3>
+                            <div class="w-20 h-1 gradient-bg mx-auto mb-6"></div>
+                            <p class="text-lg text-gray-700 italic">
+                                "Every great story starts with knowing who the main character really is."
+                            </p>
+                            <p class="text-sm text-coral font-semibold mt-2">— Cosimia</p>
+                        </div>
+                        
+                        <!-- Identity Questions -->
+                        <div class="bg-gradient-to-r from-coral/5 to-lavender/5 rounded-2xl p-8 mb-8">
+                            <h4 class="text-xl font-bold text-gradient mb-6">Identity</h4>
+                            
+                            <!-- Question 1: Names -->
+                            <div class="grid md:grid-cols-3 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="firstName">
+                                        (1) First Name *
+                                    </label>
+                                    <input type="text" id="firstName" name="firstName" required 
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="middleName">
+                                        Middle Name (Optional)
+                                    </label>
+                                    <input type="text" id="middleName" name="middleName" 
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="lastName">
+                                        Last Name *
+                                    </label>
+                                    <input type="text" id="lastName" name="lastName" required 
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                            </div>
+
+                            <!-- Preferred Name -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="preferredName">
+                                    Preferred Name
+                                </label>
+                                <input type="text" id="preferredName" name="preferredName" 
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 2: Date of Birth -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="dateOfBirth">
+                                    (2) Date of Birth *
+                                </label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" required 
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 3: Gender Assigned at Birth -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="genderAssigned">
+                                    (3) Gender Assigned at Birth *
+                                </label>
+                                <input type="text" id="genderAssigned" name="genderAssigned" required 
+                                       placeholder="e.g., Female, Male, Intersex"
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 3b: Personal Pronouns -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="pronouns">
+                                    (3b) Personal Pronouns *
+                                </label>
+                                <input type="text" id="pronouns" name="pronouns" required 
+                                       placeholder="e.g., she/her, they/them, he/him"
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 4: Place of Birth -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="placeOfBirth">
+                                    (4) Place of Birth (City/State/Country) *
+                                </label>
+                                <input type="text" id="placeOfBirth" name="placeOfBirth" required 
+                                       placeholder="e.g., Los Angeles, CA, USA"
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 5: Tribal Affiliation -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="tribalAffiliation">
+                                    (5) Tribal Affiliation (Optional)
+                                </label>
+                                <input type="text" id="tribalAffiliation" name="tribalAffiliation" 
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 6: Nationality -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-2" for="nationality">
+                                    (6) Nationality (Optional)
+                                </label>
+                                <input type="text" id="nationality" name="nationality" 
+                                       class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                            </div>
+
+                            <!-- Question 7: Clothing Sizes -->
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="pantsSize">
+                                        (7) Pants Size *
+                                    </label>
+                                    <input type="text" id="pantsSize" name="pantsSize" required 
+                                           placeholder="e.g., 28, Medium, 10"
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="shirtSize">
+                                        Shirt Size *
+                                    </label>
+                                    <input type="text" id="shirtSize" name="shirtSize" required 
+                                           placeholder="e.g., Small, Medium, Large"
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                            </div>
+
+                            <!-- Question 8: Religion -->
+                            <div class="mb-6">
+                                <label class="block text-sm font-bold text-gray-700 mb-3">
+                                    (8) Religion *
+                                </label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-coral transition-colors cursor-pointer">
+                                        <input type="radio" name="hasReligion" value="yes" required class="mr-2 text-coral" onchange="toggleReligionResponse(true, true)">
+                                        <span>Yes</span>
+                                    </label>
+                                    <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-coral transition-colors cursor-pointer">
+                                        <input type="radio" name="hasReligion" value="no" required class="mr-2 text-coral" onchange="toggleReligionResponse(true, false)">
+                                        <span>No</span>
+                                    </label>
+                                    <label class="flex items-center p-3 border border-gray-200 rounded-lg hover:border-coral transition-colors cursor-pointer">
+                                        <input type="radio" name="hasReligion" value="decline" required class="mr-2 text-coral" onchange="toggleReligionResponse(false, false)">
+                                        <span>Decline to Answer</span>
+                                    </label>
+                                </div>
+                                
+                                <!-- General religion response field -->
+                                <div id="religionResponse" class="hidden mt-4">
+                                    <textarea name="religionResponse" rows="3" 
+                                              placeholder="Please share more about your religious beliefs, practices, or spiritual background (optional)..."
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                </div>
+                                
+                                <!-- Denomination field (only shows when "Yes" is selected) -->
+                                <div id="religionDenomination" class="hidden mt-4">
+                                    <input type="text" name="denomination" placeholder="Please specify your denomination"
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cosimia's Interactive Dialogue Section -->
+                        <div class="bg-white border-2 border-coral/20 rounded-2xl p-8">
+                            <!-- Dialogue Piece 1 - Cosimia's Introduction -->
+                            <div id="dialogue1" class="dialogue-piece">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-lg">C</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-coral mb-2">Cosimia says:</h4>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            "Here at Sjòne Shrine, we do things a little differently. All four years of the program are designed like a story — drafted in storyboard mode — so you're not just going through a curriculum, you're moving through a journey. Each season represents a new chapter, and as you grow, you level up."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <button type="button" onclick="showNextDialogue(2)" 
+                                            class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm">
+                                        Continue Your Story →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Dialogue Piece 2 - Your Question -->
+                            <div id="dialogue2" class="dialogue-piece hidden">
+                                <div class="flex items-start space-x-4 mb-6 ml-8">
+                                    <div class="w-12 h-12 bg-lavender rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-lg">You</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-lavender-dark mb-2">You might ask:</h4>
+                                        <p class="text-gray-700 leading-relaxed italic">
+                                            "Like... a video game or a character arc?"
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <button type="button" onclick="showNextDialogue(3)" 
+                                            class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm">
+                                        Continue Your Story →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Dialogue Piece 3 - Cosimia's Response -->
+                            <div id="dialogue3" class="dialogue-piece hidden">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-lg">C</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-coral mb-2">Cosimia continues:</h4>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            "Exactly. Each phase comes with new challenges, new tools, and new rewards — from expanding your skillset to curating your wardrobe and personal living space. You're building your own ecosystem, one season at a time."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <button type="button" onclick="showNextDialogue(4)" 
+                                            class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm">
+                                        Continue Your Story →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Dialogue Piece 4 - Your Follow-up -->
+                            <div id="dialogue4" class="dialogue-piece hidden">
+                                <div class="flex items-start space-x-4 mb-6 ml-8">
+                                    <div class="w-12 h-12 bg-lavender rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-lg">You</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-lavender-dark mb-2">You respond:</h4>
+                                        <p class="text-gray-700 leading-relaxed italic">
+                                            "That actually sounds amazing. So I get to see where I'm headed?"
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-center mt-6">
+                                    <button type="button" onclick="showNextDialogue(5)" 
+                                            class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-sm">
+                                        Continue Your Story →
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Dialogue Piece 5 - Cosimia's Conclusion -->
+                            <div id="dialogue5" class="dialogue-piece hidden">
+                                <div class="flex items-start space-x-4 mb-8">
+                                    <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-lg">C</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-coral mb-2">Cosimia concludes:</h4>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            "Yes. It's all mapped out — but it's flexible to you. You're the main character, and we're here to help you write the best version of your story."
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" id="continueStory" 
+                                            class="gradient-bg text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+                                        Continue Your Story →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Additional sections will be revealed after clicking "Continue Your Story" -->
+                    <div id="additionalSections" class="hidden space-y-12">
+                        <!-- Contact Information -->
+                        <div class="border-b border-gray-200 pb-8">
+                            <h3 class="text-2xl font-bold text-gradient mb-6">Contact Information</h3>
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="email">
+                                        Email Address *
+                                    </label>
+                                    <input type="email" id="email" name="email" required 
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                                
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-2" for="phone">
+                                        Phone Number *
+                                    </label>
+                                    <input type="tel" id="phone" name="phone" required 
+                                           class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Novalie's Section -->
+                        <div class="border-b border-gray-200 pb-8">
+                            <div class="text-center mb-8">
+                                <h2 class="text-4xl font-black text-gradient mb-2">Chapter 2</h2>
+                                <h3 class="text-2xl font-bold text-gray-800 mb-4">The Journey Ahead</h3>
+                                <div class="w-20 h-1 gradient-bg mx-auto mb-6"></div>
+                            </div>
+
+                            <!-- Introduction to Novalie -->
+                            <div class="bg-gradient-to-r from-lavender/10 to-coral/10 rounded-2xl p-8 mb-8">
+                                <div class="flex items-start space-x-4 mb-6">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-lavender to-coral rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-xl">N</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h4 class="font-bold text-lavender-dark text-xl mb-3">Meet Novalie</h4>
+                                        <p class="text-gray-700 leading-relaxed mb-4">
+                                            "I'm Novalie, let me remind you: At Sjòne Shrine, all four years are thoughtfully structured as a seasonal progression, designed to reflect personal growth, learning, and transformation over time."
+                                        </p>
+                                        <p class="text-gray-700 leading-relaxed mb-4">
+                                            "The program unfolds in storyboard mode — meaning each phase is mapped with intention, like chapters in a personal journey. Participants level up through the seasons, gaining new skills, responsibilities, and self-knowledge as they go."
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Four Year Structure -->
+                                <div class="bg-white rounded-xl p-6 mb-6">
+                                    <h5 class="font-bold text-coral text-lg mb-4">Each year carries its own rhythm and focus:</h5>
+                                    <div class="space-y-4">
+                                        <div class="flex items-start">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-coral to-lavender rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <span class="text-white font-bold text-sm">1</span>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-bold text-gray-800">Year One: Orientation & Foundation</h6>
+                                                <p class="text-gray-600">Establishing safety, routine, and core life practices</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-coral to-lavender rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <span class="text-white font-bold text-sm">2</span>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-bold text-gray-800">Year Two: Refinement & Expansion</h6>
+                                                <p class="text-gray-600">Skill-building, digital fluency, and self-governance</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-coral to-lavender rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <span class="text-white font-bold text-sm">3</span>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-bold text-gray-800">Year Three: Embodiment & Responsibility</h6>
+                                                <p class="text-gray-600">Leadership roles, contribution, and creative output</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start">
+                                            <div class="w-8 h-8 bg-gradient-to-r from-coral to-lavender rounded-full flex items-center justify-center mr-4 mt-1">
+                                                <span class="text-white font-bold text-sm">4</span>
+                                            </div>
+                                            <div>
+                                                <h6 class="font-bold text-gray-800">Year Four: Transition & Sovereignty</h6>
+                                                <p class="text-gray-600">Designing your next path and preparing to leave with stability</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-lavender to-coral rounded-full flex items-center justify-center flex-shrink-0">
+                                        <span class="text-white font-bold text-xl">N</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="text-gray-700 leading-relaxed">
+                                            "Throughout all seasons, participants are expected to uphold Shrine values and community agreements. This is a shared path — supportive, disciplined, and built for those ready to grow."
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Novalie's Questions -->
+                            <div class="space-y-8">
+                                <!-- Question 9: Why Interested -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3" for="whyInterested">
+                                        (9) Why are you interested in joining Sjòne Shrine? *
+                                    </label>
+                                    <textarea id="whyInterested" name="whyInterested" rows="6" required 
+                                              placeholder="Share what draws you to our program, what you hope to find here, and what resonates with you about our approach. Tell your story..."
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                    <p class="text-xs text-gray-600 mt-2">Unlimited characters — share as much as feels right.</p>  
+                                </div>
+
+                                <!-- Question 10: Things to Change -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3" for="thingsToChange">
+                                        (10) What are 1–2 things you're hoping to change or improve in your life right now? *
+                                    </label>
+                                    <textarea id="thingsToChange" name="thingsToChange" rows="6" required 
+                                              placeholder="What aspects of your life are you ready to transform? What patterns, situations, or skills would you like to develop or change?"
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                    <p class="text-xs text-gray-600 mt-2">Unlimited characters — be as detailed as you'd like.</p>
+                                </div>
+
+                                <!-- Question 11: Skills Development -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3" for="skillsDevelopment">
+                                        (11) What skills are you currently working on — or hoping to develop during your time at the Shrine? *
+                                    </label>
+                                    <textarea id="skillsDevelopment" name="skillsDevelopment" rows="5" required 
+                                              placeholder="Think broadly — technical skills, life skills, creative abilities, communication, leadership, self-care, etc."
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                </div>
+
+                                <!-- Question 12: Language Learning -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3">
+                                        (12) Are you open to learning additional languages beyond your native tongue? *
+                                    </label>
+                                    
+                                    <!-- Novalie's Language Dialogue -->
+                                    <div class="bg-gradient-to-r from-lavender/10 to-coral/10 rounded-xl p-6 mb-4">
+                                        <div class="flex items-start space-x-3">
+                                            <div class="w-12 h-12 bg-gradient-to-br from-lavender to-coral rounded-full flex items-center justify-center flex-shrink-0">
+                                                <span class="text-white font-bold text-lg">N</span>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h5 class="font-bold text-lavender-dark mb-2">Novalie explains:</h5>
+                                                <p class="text-gray-700 leading-relaxed text-sm">
+                                                    "At Sjòne Shrine, we believe language is a gateway to understanding, connection, and transformation. Throughout your journey here, you may be introduced to new forms of communication — spoken, written, coded, or ceremonial. Please let us know your openness to this aspect of the program."
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex gap-6">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="openToLanguages" value="yes" required class="mr-2 text-coral">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="openToLanguages" value="no" required class="mr-2 text-coral">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Question 13: Country to Visit -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3" for="countryToVisit">
+                                        (13) If you could visit any country in the world, where would you go — and why? *
+                                    </label>
+                                    <textarea id="countryToVisit" name="countryToVisit" rows="4" required 
+                                              placeholder="Tell us about a place that calls to you and what draws you there..."
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                    <p class="text-xs text-gray-600 mt-2">Unlimited characters — dream big!</p>
+                                </div>
+
+                                <!-- Question 14: Social Media -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3">
+                                        (14) Do you have any public social media accounts you'd like to share with us? (Optional)
+                                    </label>
+                                    
+                                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                                        <!-- Instagram -->
+                                        <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                            <svg class="w-6 h-6 text-pink-500 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                            </svg>
+                                            <input type="url" name="instagram" placeholder="Instagram profile URL" 
+                                                   class="flex-1 border-none outline-none">
+                                        </div>
+
+                                        <!-- TikTok -->
+                                        <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                            <svg class="w-6 h-6 text-black mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                                            </svg>
+                                            <input type="url" name="tiktok" placeholder="TikTok profile URL" 
+                                                   class="flex-1 border-none outline-none">
+                                        </div>
+
+                                        <!-- Twitter/X -->
+                                        <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                            <svg class="w-6 h-6 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                            </svg>
+                                            <input type="url" name="twitter" placeholder="Twitter/X profile URL" 
+                                                   class="flex-1 border-none outline-none">
+                                        </div>
+
+                                        <!-- YouTube -->
+                                        <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                            <svg class="w-6 h-6 text-red-600 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                            </svg>
+                                            <input type="url" name="youtube" placeholder="YouTube channel URL" 
+                                                   class="flex-1 border-none outline-none">
+                                        </div>
+
+                                        <!-- LinkedIn -->
+                                        <div class="flex items-center p-3 border border-gray-200 rounded-lg">
+                                            <svg class="w-6 h-6 text-blue-600 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                            </svg>
+                                            <input type="url" name="linkedin" placeholder="LinkedIn profile URL" 
+                                                   class="flex-1 border-none outline-none">
+                                        </div>
+
+                                        <!-- Other -->
+                                        <div class="flex items-center p-3 border border-gray-200 rounded-lg col-span-2">
+                                            <svg class="w-6 h-6 text-gray-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                            </svg>
+                                            <input type="url" name="otherSocial" placeholder="Other social media or website URL" 
+                                                   class="flex-1 border-none outline-none">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Question 15: Musical Instrument -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3" for="musicalInstrument">
+                                        (15) Is there a musical instrument you've always wanted to learn or play? If yes, what draws you to it? *
+                                    </label>
+                                    <div class="flex gap-4 mb-4">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="hasInstrumentInterest" value="yes" required class="mr-2 text-coral" onchange="toggleInstrumentDetails(true)">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="hasInstrumentInterest" value="no" required class="mr-2 text-coral" onchange="toggleInstrumentDetails(false)">
+                                            <span>No</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="hasInstrumentInterest" value="not-applicable" required class="mr-2 text-coral" onchange="toggleInstrumentDetails(false)">
+                                            <span>Not Applicable</span>
+                                        </label>
+                                    </div>
+                                    <div id="instrumentDetails" class="hidden">
+                                        <textarea name="instrumentDescription" rows="3" 
+                                                  placeholder="Tell us about the instrument and what draws you to it..."
+                                                  class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                    </div>
+                                </div>
+
+                                <!-- Question 16: Education Level -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3" for="educationLevel">
+                                        (16) What is the highest level of education you've completed? *
+                                    </label>
+                                    <textarea id="educationLevel" name="educationLevel" rows="3" required 
+                                              placeholder="High school diploma, GED, some college, bachelor's degree, etc. Include any certifications or special programs."
+                                              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none transition-colors resize-none"></textarea>
+                                </div>
+
+                                <!-- Question 16b: Currently in School -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3">
+                                        (16b) Are you currently in school? *
+                                    </label>
+                                    <div class="flex gap-6">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="currentlyInSchool" value="yes" required class="mr-2 text-coral">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="currentlyInSchool" value="no" required class="mr-2 text-coral">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Question 17: Technology Access -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3">
+                                        (17) Do you have consistent access to a phone, internet, or computer? *
+                                    </label>
+                                    <div class="flex gap-6">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="hasTechAccess" value="yes" required class="mr-2 text-coral">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="hasTechAccess" value="no" required class="mr-2 text-coral">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Question 18: Open to Cohort -->
+                                <div>
+                                    <label class="block text-sm font-bold text-gray-700 mb-3">
+                                        (18) Are you open to participating in a small, guided cohort with deep structure and support? *
+                                    </label>
+                                    <div class="flex gap-6">
+                                        <label class="flex items-center">
+                                            <input type="radio" name="openToCohort" value="yes" required class="mr-2 text-coral">
+                                            <span>Yes</span>
+                                        </label>
+                                        <label class="flex items-center">
+                                            <input type="radio" name="openToCohort" value="no" required class="mr-2 text-coral">
+                                            <span>No</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Future chapters placeholder -->
+                        <div class="text-center py-12 bg-gradient-to-r from-coral/5 to-lavender/5 rounded-2xl">
+                            <h3 class="text-2xl font-bold text-gradient mb-4">More chapters are being written...</h3>
+                            <p class="text-gray-600">The remaining questions will continue your story journey.</p>
+                            <p class="text-sm text-gray-500 mt-2">For now, you can submit these chapters to begin your application process.</p>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button (initially hidden) -->
+                    <div id="submitSection" class="text-center pt-8 hidden">
+                        <button type="submit" 
+                                class="gradient-bg text-white px-12 py-4 rounded-full text-xl font-bold hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+                            Submit Your Story
+                        </button>
+                        <p class="text-gray-600 mt-4 text-sm">
+                            Your story will be reviewed carefully. We'll be in touch within 2-3 weeks.
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thank You Modal -->
+    <div id="thankYouModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md mx-auto text-center">
+            <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gradient mb-4">Your Story Has Been Submitted!</h3>
+            <p class="text-gray-700 mb-6">
+                Thank you for sharing your story with us. Cosimia and the team will review your application carefully and be in touch within 2-3 weeks to continue your journey.
+            </p>
+            <button onclick="closeModal()" class="gradient-bg text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition-all">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L8 8L12 12L16 8L12 2Z" fill="white"/>
+                        <path d="M2 12L8 8L12 12L8 16L2 12Z" fill="white"/>
+                        <path d="M22 12L16 8L12 12L16 16L22 12Z" fill="white"/>
+                        <path d="M12 22L8 16L12 12L16 16L12 22Z" fill="white"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-black">Sjòne Shrine</span>
+            </div>
+            <p class="text-gray-400 mb-6">
+                Supporting future leaders with armament to rise, and tools to stay.
+            </p>
+            <div class="border-t border-gray-800 pt-6">
+                <p class="text-gray-400">&copy; 2025 Sjòne Shrine Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progressive dialogue reveal functionality
+        function showNextDialogue(dialogueNumber) {
+            // Hide the current dialogue's continue button to prevent going backwards
+            const currentDialogue = document.querySelector(`#dialogue${dialogueNumber - 1}`);
+            if (currentDialogue) {
+                const continueBtn = currentDialogue.querySelector('button');
+                if (continueBtn) continueBtn.style.display = 'none';
+            }
+            
+            // Show the next dialogue piece
+            const nextDialogue = document.getElementById(`dialogue${dialogueNumber}`);
+            if (nextDialogue) {
+                nextDialogue.classList.remove('hidden');
+                // Smooth scroll to the new dialogue
+                nextDialogue.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+        }
+
+        // Continue Story functionality
+        document.getElementById('continueStory').addEventListener('click', function() {
+            // Show additional sections
+            document.getElementById('additionalSections').classList.remove('hidden');
+            document.getElementById('submitSection').classList.remove('hidden');
+            
+            // Hide the dialogue section or scroll to next section
+            document.getElementById('additionalSections').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Here you would normally send the data to your server
+            console.log('Application Data:', data);
+            
+            // Show success modal
+            document.getElementById('thankYouModal').classList.remove('hidden');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        function closeModal() {
+            document.getElementById('thankYouModal').classList.add('hidden');
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('thankYouModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Toggle functions for conditional fields
+        function toggleActivityExplanation(show) {
+            const explanation = document.getElementById('activityExplanation');
+            if (show) {
+                explanation.classList.remove('hidden');
+                explanation.querySelector('textarea').required = true;
+            } else {
+                explanation.classList.add('hidden');
+                explanation.querySelector('textarea').required = false;
+                explanation.querySelector('textarea').value = '';
+            }
+        }
+        
+        function toggleReligionResponse(showResponse, showDenomination) {
+            const responseField = document.getElementById('religionResponse');
+            const denominationField = document.getElementById('religionDenomination');
+            
+            // Show/hide general response field
+            if (showResponse) {
+                responseField.classList.remove('hidden');
+            } else {
+                responseField.classList.add('hidden');
+                responseField.querySelector('textarea').value = '';
+            }
+            
+            // Show/hide denomination field (only for "Yes" responses)
+            if (showDenomination) {
+                denominationField.classList.remove('hidden');
+            } else {
+                denominationField.classList.add('hidden');
+                denominationField.querySelector('input').value = '';
+            }
+        }
+        
+        // Keep old function for backwards compatibility (if needed elsewhere)
+        function toggleReligionDenomination(show) {
+            toggleReligionResponse(show, show);
+        }
+        
+        function toggleInstrumentDetails(show) {
+            const details = document.getElementById('instrumentDetails');
+            if (show) {
+                details.classList.remove('hidden');
+            } else {
+                details.classList.add('hidden');
+                details.querySelector('textarea').value = '';
+            }
+        }
+        
+        function toggleContactMethod(show) {
+            const contactMethod = document.getElementById('contactMethod');
+            if (show) {
+                contactMethod.classList.remove('hidden');
+                // Make one of the contact preferences required
+                const radios = contactMethod.querySelectorAll('input[name="contactPreference"]');
+                radios.forEach(radio => radio.required = true);
+            } else {
+                contactMethod.classList.add('hidden');
+                // Remove required from contact preferences and clear selection
+                const radios = contactMethod.querySelectorAll('input[name="contactPreference"]');
+                radios.forEach(radio => {
+                    radio.required = false;
+                    radio.checked = false;
+                });
+            }
+        }
+        
+        // Form validation helpers
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add real-time validation for required fields
+            const requiredFields = document.querySelectorAll('[required]');
+            requiredFields.forEach(field => {
+                field.addEventListener('blur', function() {
+                    if (field.type === 'radio' || field.type === 'checkbox') {
+                        return; // Skip validation for radio/checkbox as they have different validation logic
+                    }
+                    if (!this.value.trim()) {
+                        this.classList.add('border-red-300');
+                    } else {
+                        this.classList.remove('border-red-300');
+                        this.classList.add('border-green-300');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
