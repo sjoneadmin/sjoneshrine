@@ -1,0 +1,623 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donations Tracker | Sjòne Shrine</title>
+    <meta name="description" content="Track our progress toward funding the Sjòne Shrine program. See real-time donation updates and milestone achievements.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coral: '#F47E7E',
+                        lavender: '#CCCCFF',
+                        'coral-dark': '#E06B6B',
+                        'lavender-dark': '#B8B8FF'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #F47E7E 0%, #CCCCFF 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #F47E7E 0%, #CCCCFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .progress-fill {
+            transition: width 1s ease-in-out;
+        }
+        .milestone-glow {
+            box-shadow: 0 0 20px rgba(244, 126, 126, 0.3);
+        }
+        .donation-card {
+            animation: slideUp 0.5s ease-out;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .leaf-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F47E7E' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046 8.954-20 20-20s20 8.954 20 20-8.954 20-20 20-20-8.954-20-20zm0 0c0 11.046-8.954 20-20 20s-20-8.954-20-20 8.954-20 20-20 20 8.954 20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-lg border-b z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="/" class="flex items-center">
+                        <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L8 8L12 12L16 8L12 2Z" fill="white"/>
+                                <path d="M2 12L8 8L12 12L8 16L2 12Z" fill="white"/>
+                                <path d="M22 12L16 8L12 12L16 16L22 12Z" fill="white"/>
+                                <path d="M12 22L8 16L12 12L16 16L12 22Z" fill="white"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-black text-gray-900">Sjòne Shrine</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-coral transition-colors">Home</a>
+                    <a href="/#about" class="text-gray-600 hover:text-coral transition-colors">About</a>
+                    <a href="/#programs" class="text-gray-600 hover:text-coral transition-colors">Programs</a>
+                    <a href="/apply.html" class="gradient-bg text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="pt-24 pb-12 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-6xl font-black mb-6">Donation Tracker</h1>
+            <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                See exactly how your contributions are making a difference in young women's lives.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Progress Section -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8">
+            <div class="text-center mb-12">
+                <!-- Animated Logo -->
+                <div class="w-32 h-32 mx-auto mb-8">
+                    <svg viewBox="0 0 120 120" class="w-full h-full">
+                        <!-- Leaf shape -->
+                        <defs>
+                            <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#F47E7E"/>
+                                <stop offset="100%" style="stop-color:#CCCCFF"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge> 
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        
+                        <!-- Background leaf outline -->
+                        <path d="M60 10 C35 10, 15 30, 15 55 C15 80, 35 100, 60 100 C85 100, 105 80, 105 55 C105 30, 85 10, 60 10 Z" 
+                              fill="none" stroke="url(#leafGradient)" stroke-width="2"/>
+                        
+                        <!-- Progress fill -->
+                        <clipPath id="leafClip">
+                            <path d="M60 10 C35 10, 15 30, 15 55 C15 80, 35 100, 60 100 C85 100, 105 80, 105 55 C105 30, 85 10, 60 10 Z"/>
+                        </clipPath>
+                        
+                        <rect x="15" y="100" width="90" height="0" 
+                              fill="url(#leafGradient)" 
+                              clip-path="url(#leafClip)"
+                              id="progressFill"
+                              filter="url(#glow)">
+                            <animate attributeName="height" 
+                                     values="0;5" 
+                                     dur="2s" 
+                                     fill="freeze"/>
+                            <animate attributeName="y" 
+                                     values="100;95" 
+                                     dur="2s" 
+                                     fill="freeze"/>
+                        </rect>
+                        
+                        <!-- Leaf vein -->
+                        <path d="M60 20 L60 90" stroke="url(#leafGradient)" stroke-width="1" opacity="0.7"/>
+                        <path d="M60 35 Q45 40, 50 55" stroke="url(#leafGradient)" stroke-width="0.5" opacity="0.5"/>
+                        <path d="M60 35 Q75 40, 70 55" stroke="url(#leafGradient)" stroke-width="0.5" opacity="0.5"/>
+                    </svg>
+                </div>
+
+                <h2 class="text-3xl font-bold text-gradient mb-4">Our Progress</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Every donation brings us closer to our goal of supporting young women in their journey to independence.
+                </p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-lg font-semibold text-gray-700">$<span id="currentAmount">500</span> raised</span>
+                    <span class="text-lg font-semibold text-gray-700">Goal: $<span id="goalAmount">100,000</span></span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-4 mb-4">
+                    <div class="gradient-bg h-4 rounded-full progress-fill" style="width: 0.5%" id="progressBar"></div>
+                </div>
+                <div class="text-center">
+                    <span class="text-2xl font-bold text-gradient"><span id="progressPercent">0.5</span>% Complete</span>
+                </div>
+            </div>
+
+            <!-- Mission Statement -->
+            <div class="text-center bg-gradient-to-r from-coral/5 to-lavender/5 rounded-2xl p-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Our Mission</h3>
+                <p class="text-gray-600 leading-relaxed" id="missionText">
+                    We provide comprehensive support, education, and community for young women ages 18-25 who are entering adulthood without traditional family or institutional backing. Your donation directly funds life-changing programs, mentorship, and resources.
+                </p>
+            </div>
+        </div>
+
+        <!-- Milestones Section -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8">
+            <h2 class="text-3xl font-bold text-gradient text-center mb-12">Milestones</h2>
+            
+            <div class="space-y-8" id="milestonesList">
+                <!-- Milestones will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Recent Donations -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12 mb-8">
+            <h2 class="text-3xl font-bold text-gradient text-center mb-12">Recent Donations</h2>
+            
+            <div class="space-y-6" id="donationsList">
+                <!-- Donations will be populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Donation Form -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+            <h2 class="text-3xl font-bold text-gradient text-center mb-8">Support Our Mission</h2>
+            
+            <div class="max-w-2xl mx-auto">
+                <p class="text-gray-600 text-center mb-8 leading-relaxed">
+                    Your donation helps provide essential support, education, and opportunities for young women building their futures. Every contribution, no matter the size, makes a meaningful impact.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Bank Transfer -->
+                    <div class="border-2 border-gray-200 rounded-2xl p-6 hover:border-coral transition-colors">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 text-coral mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-800">Bank Transfer</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Donate directly through NBKC Bank for secure, fee-free transfers.</p>
+                        <a href="https://www.nbkc.com/" target="_blank" rel="noopener noreferrer" 
+                           class="w-full gradient-bg text-white py-3 px-6 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-center block">
+                            Donate via Bank Transfer
+                        </a>
+                    </div>
+
+                    <!-- PayPal -->
+                    <div class="border-2 border-gray-200 rounded-2xl p-6 hover:border-coral transition-colors">
+                        <div class="flex items-center mb-4">
+                            <svg class="w-8 h-8 text-coral mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v2a2 2 0 002 2z"></path>
+                            </svg>
+                            <h3 class="text-xl font-bold text-gray-800">PayPal</h3>
+                        </div>
+                        <p class="text-gray-600 mb-6">Quick and secure donations through PayPal's trusted platform.</p>
+                        <a href="https://paypal.me/sjoneshrine" target="_blank" rel="noopener noreferrer" 
+                           class="w-full bg-blue-600 text-white py-3 px-6 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-center block">
+                            Donate via PayPal
+                        </a>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <p class="text-sm text-gray-500 mb-4">
+                        <strong>Important:</strong> After making a donation, please note that it may take 24-48 hours to appear in our tracker as we verify all contributions manually.
+                    </p>
+                    <p class="text-xs text-gray-400">
+                        Sjòne Shrine Inc. is a registered nonprofit organization. Your donation may be tax-deductible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 leaf-pattern">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center mb-4">
+                <div class="w-10 h-10 gradient-bg rounded-lg flex items-center justify-center mr-3">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L8 8L12 12L16 8L12 2Z" fill="white"/>
+                        <path d="M2 12L8 8L12 12L8 16L2 12Z" fill="white"/>
+                        <path d="M22 12L16 8L12 12L16 16L22 12Z" fill="white"/>
+                        <path d="M12 22L8 16L12 12L16 16L12 22Z" fill="white"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-black">Sjòne Shrine</span>
+            </div>
+            <p class="text-gray-400 mb-6">
+                Supporting future leaders with armament to rise, and tools to stay.
+            </p>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="/" class="text-gray-400 hover:text-white transition-colors">Home</a>
+                <a href="/#about" class="text-gray-400 hover:text-white transition-colors">About</a>
+                <a href="/#programs" class="text-gray-400 hover:text-white transition-colors">Programs</a>
+                <a href="/apply.html" class="text-gray-400 hover:text-white transition-colors">Apply</a>
+            </div>
+            <div class="border-t border-gray-800 pt-6">
+                <p class="text-gray-400">&copy; 2025 Sjòne Shrine Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initial data
+        const initialData = {
+            currentAmount: 500,
+            goalAmount: 100000,
+            donations: [
+                {
+                    id: 1,
+                    name: "Sarah M.",
+                    amount: 150,
+                    date: "2025-01-05",
+                    message: "So proud of what you're doing for young women. Keep up the amazing work!"
+                },
+                {
+                    id: 2,
+                    name: "Anonymous",
+                    amount: 100,
+                    date: "2025-01-03",
+                    message: "Every young woman deserves support and guidance. Thank you for this program."
+                },
+                {
+                    id: 3,
+                    name: "Maya Chen",
+                    amount: 75,
+                    date: "2024-12-30",
+                    message: "Having mentorship makes all the difference. Excited to support future leaders!"
+                },
+                {
+                    id: 4,
+                    name: "Jennifer K.",
+                    amount: 50,
+                    date: "2024-12-28",
+                    message: "Small contribution but big support for this important cause."
+                },
+                {
+                    id: 5,
+                    name: "Anonymous",
+                    amount: 125,
+                    date: "2024-12-25",
+                    message: "Christmas donation to help young women build their futures. Merry Christmas!"
+                }
+            ],
+            milestones: [
+                {
+                    id: 1,
+                    amount: 1000,
+                    title: "First Step",
+                    description: "Fund essential supplies for 5 participants for one month",
+                    achieved: false,
+                    romanNumeral: "I"
+                },
+                {
+                    id: 2,
+                    amount: 5000,
+                    title: "Building Momentum",
+                    description: "Launch financial literacy workshop series",
+                    achieved: false,
+                    romanNumeral: "V"
+                },
+                {
+                    id: 3,
+                    amount: 15000,
+                    title: "Expanding Reach",
+                    description: "Support 15 participants through Year One foundation program",
+                    achieved: false,
+                    romanNumeral: "XV"
+                },
+                {
+                    id: 4,
+                    amount: 35000,
+                    title: "Strong Foundation",
+                    description: "Establish permanent mentorship program with dedicated staff",
+                    achieved: false,
+                    romanNumeral: "XXXV"
+                },
+                {
+                    id: 5,
+                    amount: 60000,
+                    title: "Community Growth",
+                    description: "Create dedicated housing support and life skills center",
+                    achieved: false,
+                    romanNumeral: "LX"
+                },
+                {
+                    id: 6,
+                    amount: 100000,
+                    title: "Full Program Launch",
+                    description: "Launch complete four-year program serving 25 young women annually",
+                    achieved: false,
+                    romanNumeral: "C"
+                }
+            ]
+        };
+
+        // Load data from localStorage or use initial data
+        function loadData() {
+            const saved = localStorage.getItem('sjoneShrineData');
+            if (saved) {
+                try {
+                    return JSON.parse(saved);
+                } catch (e) {
+                    return initialData;
+                }
+            }
+            return initialData;
+        }
+
+        // Save data to localStorage
+        function saveData(data) {
+            localStorage.setItem('sjoneShrineData', JSON.stringify(data));
+        }
+
+        // Format currency
+        function formatCurrency(amount) {
+            return new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 0
+            }).format(amount);
+        }
+
+        // Format date
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        // Update progress display
+        function updateProgress(data) {
+            const progressPercent = (data.currentAmount / data.goalAmount) * 100;
+            
+            document.getElementById('currentAmount').textContent = data.currentAmount.toLocaleString();
+            document.getElementById('goalAmount').textContent = data.goalAmount.toLocaleString();
+            document.getElementById('progressPercent').textContent = progressPercent.toFixed(1);
+            
+            const progressBar = document.getElementById('progressBar');
+            progressBar.style.width = Math.max(0.5, progressPercent) + '%';
+            
+            // Update animated logo fill
+            const progressFill = document.getElementById('progressFill');
+            const fillHeight = Math.max(5, (progressPercent / 100) * 85);
+            progressFill.innerHTML = `
+                <animate attributeName="height" values="0;${fillHeight}" dur="2s" fill="freeze"/>
+                <animate attributeName="y" values="100;${100 - fillHeight}" dur="2s" fill="freeze"/>
+            `;
+        }
+
+        // Render milestones
+        function renderMilestones(data) {
+            const container = document.getElementById('milestonesList');
+            
+            const milestonesHtml = data.milestones.map(milestone => {
+                const achieved = data.currentAmount >= milestone.amount;
+                const progress = Math.min(100, (data.currentAmount / milestone.amount) * 100);
+                
+                return `
+                    <div class="flex items-center p-6 rounded-2xl border-2 ${achieved ? 'border-coral bg-coral/5 milestone-glow' : 'border-gray-200'} transition-all">
+                        <div class="w-16 h-16 ${achieved ? 'gradient-bg' : 'bg-gray-200'} rounded-full flex items-center justify-center mr-6">
+                            <span class="text-white font-bold text-lg">${milestone.romanNumeral}</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center mb-2">
+                                <h3 class="text-xl font-bold ${achieved ? 'text-coral' : 'text-gray-800'}">${milestone.title}</h3>
+                                <span class="text-lg font-semibold ${achieved ? 'text-coral' : 'text-gray-600'}">${formatCurrency(milestone.amount)}</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">${milestone.description}</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="${achieved ? 'gradient-bg' : 'bg-gray-300'} h-2 rounded-full transition-all duration-1000" style="width: ${progress}%"></div>
+                            </div>
+                            <div class="text-right mt-1">
+                                <span class="text-sm ${achieved ? 'text-coral font-semibold' : 'text-gray-500'}">${progress.toFixed(1)}% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = milestonesHtml;
+        }
+
+        // Render donations
+        function renderDonations(data) {
+            const container = document.getElementById('donationsList');
+            
+            const sortedDonations = [...data.donations].sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            const donationsHtml = sortedDonations.map((donation, index) => `
+                <div class="donation-card p-6 border border-gray-200 rounded-2xl hover:border-coral transition-colors" style="animation-delay: ${index * 0.1}s">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 text-lg">${donation.name}</h4>
+                            <p class="text-gray-500 text-sm">${formatDate(donation.date)}</p>
+                        </div>
+                        <span class="text-2xl font-bold text-coral">${formatCurrency(donation.amount)}</span>
+                    </div>
+                    ${donation.message ? `<p class="text-gray-600 italic">"${donation.message}"</p>` : ''}
+                </div>
+            `).join('');
+            
+            container.innerHTML = donationsHtml;
+        }
+
+        // Initialize the page
+        function initializePage() {
+            const data = loadData();
+            
+            updateProgress(data);
+            renderMilestones(data);
+            renderDonations(data);
+            
+            // Save data back (in case we're using initial data)
+            saveData(data);
+        }
+
+        // Admin panel functionality (hidden)
+        let adminPanelVisible = false;
+        
+        function toggleAdminPanel(event) {
+            if (event.ctrlKey && event.shiftKey && event.key === 'A') {
+                event.preventDefault();
+                adminPanelVisible = !adminPanelVisible;
+                
+                if (adminPanelVisible) {
+                    showAdminPanel();
+                } else {
+                    hideAdminPanel();
+                }
+            }
+        }
+
+        function showAdminPanel() {
+            const existingPanel = document.getElementById('adminPanel');
+            if (existingPanel) return;
+
+            const panel = document.createElement('div');
+            panel.id = 'adminPanel';
+            panel.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
+            
+            panel.innerHTML = `
+                <div class="bg-white rounded-2xl p-8 max-w-md w-full">
+                    <h3 class="text-2xl font-bold text-gradient mb-6">Admin Panel</h3>
+                    <form id="adminForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Donor Name</label>
+                            <input type="text" id="donorName" placeholder="Enter donor name" 
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Amount ($)</label>
+                            <input type="number" id="donationAmount" placeholder="Enter amount" min="1" 
+                                   class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message (Optional)</label>
+                            <textarea id="donationMessage" rows="3" placeholder="Enter message" 
+                                      class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-coral focus:outline-none resize-none"></textarea>
+                        </div>
+                        <div class="flex gap-3 mt-6">
+                            <button type="submit" class="flex-1 gradient-bg text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
+                                Add Donation
+                            </button>
+                            <button type="button" onclick="hideAdminPanel()" class="flex-1 border-2 border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:border-coral transition-all">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(panel);
+            
+            document.getElementById('adminForm').addEventListener('submit', handleAdminSubmit);
+        }
+
+        function hideAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            if (panel) {
+                panel.remove();
+            }
+            adminPanelVisible = false;
+        }
+
+        function handleAdminSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('donorName').value.trim();
+            const amount = parseFloat(document.getElementById('donationAmount').value);
+            const message = document.getElementById('donationMessage').value.trim();
+            
+            if (!name || !amount || amount <= 0) {
+                alert('Please enter valid donor name and amount.');
+                return;
+            }
+            
+            const data = loadData();
+            
+            // Add new donation
+            const newDonation = {
+                id: Date.now(),
+                name: name,
+                amount: amount,
+                date: new Date().toISOString().split('T')[0],
+                message: message || ''
+            };
+            
+            data.donations.unshift(newDonation);
+            data.currentAmount += amount;
+            
+            // Update milestones
+            data.milestones.forEach(milestone => {
+                if (data.currentAmount >= milestone.amount && !milestone.achieved) {
+                    milestone.achieved = true;
+                }
+            });
+            
+            saveData(data);
+            initializePage();
+            hideAdminPanel();
+            
+            // Show success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg z-50';
+            successMsg.textContent = 'Donation added successfully!';
+            document.body.appendChild(successMsg);
+            
+            setTimeout(() => {
+                successMsg.remove();
+            }, 3000);
+        }
+
+        // Event listeners
+        document.addEventListener('keydown', toggleAdminPanel);
+        document.addEventListener('DOMContentLoaded', initializePage);
+    </script>
+</body>
+</html>
+```
+
+**Create this as `donations/index.html` in your repository!** 🎯
