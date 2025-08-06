@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/sjoneshrine/static/css/main.9f1cdf81.css",
+    "main.js": "/sjoneshrine/static/js/main.d56d4056.js",
+    "index.html": "/sjoneshrine/index.html",
+    "main.9f1cdf81.css.map": "/sjoneshrine/static/css/main.9f1cdf81.css.map",
+    "main.d56d4056.js.map": "/sjoneshrine/static/js/main.d56d4056.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9f1cdf81.css",
+    "static/js/main.d56d4056.js"
+  ]
+}
