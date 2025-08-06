@@ -16,7 +16,7 @@ const defaultGoal = {
   subtitle: "Supporting Future Leaders with armament to rise, and tools to stay.",
   description: "Sjòne Shrine is a non- profit, providing ceremonial coded programs based on clinical, cyber, and self-hood focused disciplines.",
   targetAmount: 100000,
-  currentAmount: 500,
+  currentAmount: 5750,
   currency: "USD",
   createdAt: "2025-01-01",
   endDate: "2025-12-31"
