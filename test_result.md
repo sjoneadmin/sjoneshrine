@@ -119,6 +119,8 @@ frontend:
       - working: true
         agent: "main"
         comment: "Fixed by updating currentAmount in defaultGoal from 500 to 5750 in localStorage.js. This resolves the hardcoded value causing incorrect display."
+
+  - task: "GitHub Pages Deployment Configuration"
     implemented: true
     working: true
     file: "package.json, App.js, index.html, public/.nojekyll"
