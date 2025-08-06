@@ -201,7 +201,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "GitHub Pages Deployment Configuration"
+    - "React App Donation Data Fix"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
