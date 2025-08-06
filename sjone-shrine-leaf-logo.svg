@@ -1,0 +1,108 @@
+<svg width="260" height="120" viewBox="0 0 260 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Shimmer gradient -->
+    <linearGradient id="shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0" />
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Leaf gradients for each leaf (all filled for logo version) -->
+    <linearGradient id="leafGradient0" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+    <linearGradient id="leafGradient1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+    <linearGradient id="leafGradient2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+    <linearGradient id="leafGradient3" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+    <linearGradient id="leafGradient4" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+    <linearGradient id="leafGradient5" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+    <linearGradient id="leafGradient6" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="transparent" />
+      <stop offset="0%" stop-color="#F47E7E" />
+      <stop offset="100%" stop-color="#F47E7E" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Leaf 0: Bottom left -->
+  <g transform="translate(40, 85) rotate(-45)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient0)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Leaf 1: Mid left -->
+  <g transform="translate(70, 55) rotate(-25)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient1)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Leaf 2: Top left -->
+  <g transform="translate(100, 35) rotate(-10)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient2)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Leaf 3: Center top -->
+  <g transform="translate(130, 25) rotate(0)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient3)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Leaf 4: Top right -->
+  <g transform="translate(160, 35) rotate(10)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient4)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Leaf 5: Mid right -->
+  <g transform="translate(190, 55) rotate(25)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient5)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Leaf 6: Bottom right -->
+  <g transform="translate(220, 85) rotate(45)">
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1" />
+    <path d="M0 15 Q-8 -5 0 -15 Q8 -5 0 15 Z" fill="url(#leafGradient6)" />
+    <line x1="0" y1="15" x2="0" y2="-15" stroke="#F47E7E" stroke-width="1" />
+  </g>
+  
+  <!-- Central glow effect -->
+  <circle cx="130" cy="60" r="40" fill="none" stroke="#F47E7E" stroke-width="2" opacity="0.2" filter="url(#glow)" />
+</svg>
